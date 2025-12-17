@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zdelovská lávka – hlavní stránka</title>
+  <meta name="description" content="Novinky a aktuální informace k akci Zdelovská lávka." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header>
+  <div class="nav-bar">
+    <div class="logo">Zdelovská lávka</div>
+    <div class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+    <nav aria-label="Hlavní navigace">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Novinky</a></li>
+        <li><a href="o-akci.html">O akci</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="informace.html">Informace</a></li>
+        <li><a href="fotky.html">Fotky</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="news-header">
+    <h1>Novinky</h1>
+    <p>Aktuality z příprav Zdelovské lávky – články, fotky, oznámení.</p>
+  </section>
+
+  <section class="news-grid">
+
+    <!-- Novinka 1 – klikací obrázek -->
+<article class="card">
+  <a href="novinky/nejlepsi-momenty.html">
+    <img src="fotky/nejlepsi-momenty.png"
+         alt="Nejlepší momenty z loňska"
+         class="news-thumb" />
+  </a>
+  <div class="news-card-top">
+    <span class="news-tag accent">Fotogalerie</span>
+    <time datetime="2025-07-10">10. 7. 2025</time>
+  </div>
+  <h2>Nejlepší momenty z loňska</h2>
+  <p>Prohlédněte si nejzajímavější okamžiky a záběry z minulého ročníku akce.</p>
+  <a href="novinky/nejlepsi-momenty.html" class="news-link">Číst dál →</a>
+</article>
+
+
+    <!-- Novinka 2 -->
+    <article class="card">
+  <a href="novinky/novinka2.html">
+    <img src="fotky/program-vechera.png"
+         alt="Program večerní zábavy"
+         class="news-thumb" />
+  </a>
+  <div class="news-card-top">
+    <span class="news-tag default">Aktuálně</span>
+    <time datetime="2025-07-05">5. 7. 2025</time>
+  </div>
+  <h2>Potvrzen program večera</h2>
+  <p>Večerní zábavu zajistí kapela PLAZMA – od 20:00 pod širým nebem!</p>
+  <a href="novinky/novinka2.html" class="news-link">Číst dál →</a>
+</article>
+
+
+
+    <!-- Další novinky přidej stejným způsobem -->
+  </section>
+</main>
+
+<footer>
+  <div>© <span id="year"></span> Zdelovská lávka</div>
+  <div class="sponsor-logos">
+    <img src="sponsors/hptronic.jpg" alt="Logo HP Tronic" loading="lazy" />
+    <img src="sponsors/skodaauto.jpg" alt="Logo Škoda Auto" loading="lazy" />
+    <img src="sponsors/slevomat.png" alt="Logo Slevomat" loading="lazy" />
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Informace pro návštěvníky – Zdelovská lávka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-centered">
+    <div class="logo">Zdelovská lávka</div>
+    <nav aria-label="Hlavní navigace">
+      <ul class="nav-menu">
+ <li><a href="index.html" >Novinky</a></li>
+        <li><a href="o-akci.html">O akci</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="informace.html"class="active">Informace</a></li>
+        <li><a href="fotky.html">Fotky</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h1>Informace pro návštěvníky</h1>
+    <div class="info-grid">
+      <div class="info-item card">
+        <h3>Jak se k nám dostat</h3>
+        <p>
+          Zdelovská lávka se nachází v bývalém areálu koupaliště Zdelov.
+          Přijet lze pěšky, na kole nebo autem – parkovat lze hned vedle areálu.
+        </p>
+      </div>
+      <div class="info-item card">
+        <h3>Občerstvení</h3>
+        <p>
+          Občerstvení zajišťuje Zdelovská hospoda
+        </p>
+      </div>
+      <div class="info-item card">
+        <h3>Bezpečnost</h3>
+        <p>
+          Doporučujeme zvýšenou opatrnost u vody, zejména u dětí.
+          V případě špatného počasí se může program upravit nebo přesunout.
+        </p>
+      </div>
+    </div>
+    <div class="card">
+          <h3>Pro koho je akce?</h3>
+          <p>Pro rodiny s dětmi, partu kamarádů i jednotlivce. Stačí dobrá nálada.</p>
+        </div>
+        <div class="card">
+          <h3>Co si vzít s sebou?</h3>
+          <p>Pohodlné oblečení, něco k vodě, deku na sezení a případně hotovost na občerstvení.</p>
+        </div>
+  </section>
+   <section id="mapa">
+  <h2>Kde se akce koná</h2>
+
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d685.5245656184597!2d16.136836200271155!3d50.10432585749632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2scz!4v1764849478488!5m2!1sen!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <p>Interaktivní mapa s přesnou polohou Zdelovské lávky.</p>
+</section>
+
+</main>
+
+<!-- 🔽 PATIČKA STRÁNKY -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Copyright text -->
+    <div class="footer-info">
+      © <span id="year"></span> Zdelovská lávka
+    </div>
+
+    <!-- Sekce sponzorů -->
+    <div class="sponsors">
+      <h4>Naši sponzoři</h4>
+
+      <!-- Obrázky/loga sponzorů -->
+      <div class="sponsor-logos">
+        <img src="sponsors/hptronic.jpg" alt="Sponzor 1" />
+        <img src="sponsors/skodaauto.jpg" alt="Sponzor 2" />
+        <img src="sponsors/slevomat.png" alt="Sponzor 3" />
+        <img src="sponsors/teliacom.png" alt="Sponzor 4" />
+        <img src="sponsors/telux_banner3.webp" alt="Sponzor 5" />
+        <!-- 🧩 můžeš přidat další loga podle potřeby -->
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  let lastScrollY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    if (window.scrollY > lastScrollY) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</body>
+</html>

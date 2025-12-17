@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Program – Zdelovská lávka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-centered">
+    <div class="logo">Zdelovská lávka</div>
+    <nav aria-label="Hlavní navigace">
+      <ul class="nav-menu">
+       <li><a href="index.html" >Novinky</a></li>
+        <li><a href="o-akci.html">O akci</a></li>
+        <li><a href="program.html"class="active">Program</a></li>
+        <li><a href="informace.html">Informace</a></li>
+        <li><a href="fotky.html">Fotky</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <h1>Program dne</h1>
+    <p>Časy a body programu si můžeš upravit podle skutečného průběhu akce.</p>
+
+    <div class="two-cols">
+      <div>
+        <ul class="program-list">
+          <li><span class="program-time">14:00</span> Zahájení akce, přivítání návštěvníků</li>
+          <li><span class="program-time">14:30</span> Hlavní soutěž u lávky / u vody</li>
+          <li><span class="program-time">16:00</span> Doprovodný program pro děti</li>
+          <li><span class="program-time">17:30</span> Vyhlášení výsledků soutěží</li>
+          <li><span class="program-time">19:00</span> PLAZMA</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Jak to u nás obvykle vypadá?</h3>
+        <p>
+          Program se může rok od roku měnit, ale základ zůstává stejný.
+          
+        </p>
+        
+        
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 🔽 PATIČKA STRÁNKY -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Copyright text -->
+    <div class="footer-info">
+      © <span id="year"></span> Zdelovská lávka
+    </div>
+
+    <!-- Sekce sponzorů -->
+    <div class="sponsors">
+      <h4>Naši sponzoři</h4>
+
+      <!-- Obrázky/loga sponzorů -->
+      <div class="sponsor-logos">
+        <img src="sponsors/hptronic.jpg" alt="Sponzor 1" />
+        <img src="sponsors/skodaauto.jpg" alt="Sponzor 2" />
+        <img src="sponsors/slevomat.png" alt="Sponzor 3" />
+        <img src="sponsors/teliacom.png" alt="Sponzor 4" />
+        <img src="sponsors/telux_banner3.webp" alt="Sponzor 5" />
+        <!-- 🧩 můžeš přidat další loga podle potřeby -->
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  let lastScrollY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    if (window.scrollY > lastScrollY) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</body>
+</html>

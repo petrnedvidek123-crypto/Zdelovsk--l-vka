@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>O akci – Zdelovská lávka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informace o tradiční akci Zdelovská lávka.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-centered">
+    <div class="logo">Zdelovská lávka</div>
+    <nav aria-label="Hlavní navigace">
+      <ul class="nav-menu">
+           <li><a href="index.html" >Novinky</a></li>
+        <li><a href="o-akci.html"class="active">O akci</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="informace.html">Informace</a></li>
+        <li><a href="fotky.html">Fotky</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <div class="hero-badge">
+        <span>Tradiční letní akce</span>
+      </div>
+      <h1>O Zdelovské lávce</h1>
+      <p>
+        Zdelovská lávka je každoroční setkání přátel, rodin a všech, kteří mají rádi pohodu u vody.
+        Soutěže, večerní posezení a přátelská atmosféra jsou základem celé akce.
+      </p>
+      <div class="hero-meta">
+        <span>📍 Zdelov a okolí</span>
+        <span>📅 Léto, každý rok</span>
+        <span>👨‍👩‍👧‍👦 Pro všechny věkové kategorie</span>
+      </div>
+      
+    </div>
+
+    <div class="hero-illu" aria-hidden="true">
+      <div class="hero-illu-inner">
+        <div>
+          <h2>Den u vody</h2>
+          <p>
+            Soutěže na lávce , dobré jídlo, pití a hudba. Přijď se podívat nebo rovnou soutěžit.
+          </p>
+        </div>
+        <div class="hero-illu-footer">
+          <div>⏱ Program odpoledne až do večera</div>
+          <div>⭐ Domácí a přátelská atmosféra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="two-cols">
+      <div>
+        <h2>Jak akce vznikla</h2>
+        <p>
+          Zdelovská lávka začala jako malá sousedská zábava a postupně se z ní stala tradice, na kterou se
+          každý rok těší desítky lidí z okolí.
+        </p>
+        <p>
+          Každý ročník je trochu jiný – mění se disciplíny, doprovodné aktivity i večerní program.
+        </p>
+      </div>
+      
+    </div>
+  </section>
+
+  <section id="plakat">
+    <h2>Plakát akce</h2>
+    <div class="two-cols">
+      <div class="poster-wrapper">
+        <img src="plakát/web_lavka_2024.jpg" alt="Plakát akce Zdelovská lávka" class="poster-img">
+      </div>
+      
+    </div>
+  </section>
+ 
+</main>
+
+<!-- 🔽 PATIČKA STRÁNKY -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Copyright text -->
+    <div class="footer-info">
+      © <span id="year"></span> Zdelovská lávka
+    </div>
+
+    <!-- Sekce sponzorů -->
+    <div class="sponsors">
+      <h4>Naši sponzoři</h4>
+
+      <!-- Obrázky/loga sponzorů -->
+      <div class="sponsor-logos">
+        <img src="sponsors/hptronic.jpg" alt="HP Tronic" />
+        <img src="sponsors/skodaauto.jpg" alt="Škoda Auto" />
+        <img src="sponsors/slevomat.png" alt="Slevomat" />
+        <img src="sponsors/teliacom.png" alt="Teliacom" />
+        <img src="sponsors/telux_banner3.webp" alt="Telux" />
+        <!-- 🧩 můžeš přidat další loga podle potřeby -->
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- JavaScript pro aktuální rok -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script>
+  const yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+
+  let lastScrollY = window.scrollY;
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    if (window.scrollY > lastScrollY) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+
+</body>
+</html>
