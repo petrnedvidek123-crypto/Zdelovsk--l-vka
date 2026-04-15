@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shrnutí a fotogalerie z akce Zdelovská lávka 2025. Podívejte se na nejlepší momenty zachycené fotografem Tomášem Piatnicou.">
+  <link rel="icon" href="../fotky/favicon.ico" type="image/x-icon">
+  <title>Nejlepší momenty z loňska – Zdelovská lávka</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <header>
+    <a href="../index.html" class="banner-link" aria-label="Zpět na hlavní stránku"></a>
+    <div class="nav-bar">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Novinky</a></li>
+          <li><a href="../o-akci.html">O akci</a></li>
+          <li><a href="../program.html">Program</a></li>
+          <li><a href="../informace.html">Informace</a></li>
+          <li><a href="../fotky.html">Fotky</a></li>
+          <li><a href="../kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="detail">
+      <h1>Shrnutí Zdelovské lávky 2025</h1>
+      <p class="article-date">17. 12. 2025</p>
+
+      <img 
+        src="../fotky/nejlepsi-momenty.png" 
+        alt="Nejlepší momenty z loňska" 
+        class="article-image"
+      />
+
+      <p>
+        Letošní ročník Zdelovské lávky přinesl spoustu skvělých zážitků a nezapomenutelných okamžiků.
+        Soutěžící se opět předvedli v plné parádě a atmosféra byla naprosto fantastická.
+      </p>
+
+      <p>
+        V galerii níže si můžete prohlédnout fotografie zachycující ty nejlepší chvíle celého dne.
+        Děkujeme všem účastníkům, dobrovolníkům i divákům, kteří vytvořili neopakovatelnou atmosféru.
+      </p>
+
+      <!-- === MALÁ GALERIE 5 FOTEK === -->
+      <div class="mini-gallery">
+        <h2>Výsledky </h2>
+        <div class="gallery-grid">
+          <img src="../výsledky2025/518352445_25178236458443092_2939359057423552229_n.jpg" alt="Účastníci při závodu" loading="lazy">
+          <img src="../výsledky2025/518352633_25178236788443059_8757714435940218109_n.jpg" alt="Pád do vody – moment z lávky" loading="lazy">
+          <img src="../výsledky2025/518362137_25178236315109773_8665419143792625967_n.jpg" alt="Diváci fandící závodníkům" loading="lazy">
+          <img src="../výsledky2025/518384900_25178236621776409_5460210761815525238_n.jpg" alt="Závodník na lávce" loading="lazy">
+          <img src="../výsledky2025/518407628_25178236901776381_4642009081334782005_n.jpg" alt="Vítězové Zdelovské lávky 2025" loading="lazy">
+        </div>
+      </div>
+      <!-- === KONEC GALERIE === -->
+
+      <p>
+        📸 Celou fotogalerii ze Zdelovské lávky 2025 si můžete prohlédnout na portálu Rajče:
+      </p>
+
+      <div class="photo-gallery-link">
+        <a 
+          href="https://www.rajce.idnes.cz/gabcaticha/album/zdelovska-lavka-2025-foto-t-piatnica" 
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          👉 Otevřít fotogalerii na Rajče.cz
+        </a>
+      </div>
+
+      <p class="photo-credit">
+        Autorem fotografií je <strong>Tomáš Piatnica</strong> – děkujeme za krásné snímky, které zachycují atmosféru akce.
+      </p>
+
+      <a href="../index.html" class="back-link">← Zpět na hlavní stránku</a>
+    </article>
+  </main>
+
+  <footer>
+    <div>© 2025 Zdelovská lávka</div>
+  </footer>
+  <script>
+  const images = document.querySelectorAll('.gallery-grid img');
+  let currentIndex = 0;
+
+  // Vytvoření lightboxu
+  const lightbox = document.createElement('div');
+  lightbox.classList.add('lightbox');
+  lightbox.innerHTML = `
+    <span class="close">&times;</span>
+    <span class="arrow left">&#10094;</span>
+    <img src="" alt="Zvětšená fotografie">
+    <span class="arrow right">&#10095;</span>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector('img');
+  const closeBtn = lightbox.querySelector('.close');
+  const leftArrow = lightbox.querySelector('.arrow.left');
+  const rightArrow = lightbox.querySelector('.arrow.right');
+
+  function showImage(index) {
+    currentIndex = (index + images.length) % images.length;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.classList.add('active');
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => showImage(index));
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+
+  rightArrow.addEventListener('click', () => showImage(currentIndex + 1));
+  leftArrow.addEventListener('click', () => showImage(currentIndex - 1));
+
+  // Zavření kliknutím mimo obrázek nebo klávesou ESC
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

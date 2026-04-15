@@ -1,144 +1,192 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Informace o tradiční akci Zdelovská lávka." />
   <title>O akci – Zdelovská lávka</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Informace o tradiční akci Zdelovská lávka.">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
 
-<header>
-  <div class="nav-centered">
-    <div class="logo">Zdelovská lávka</div>
-    <nav aria-label="Hlavní navigace">
-      <ul class="nav-menu">
-           <li><a href="index.html" >Novinky</a></li>
-        <li><a href="o-akci.html"class="active">O akci</a></li>
-        <li><a href="program.html">Program</a></li>
-        <li><a href="informace.html">Informace</a></li>
-        <li><a href="fotky.html">Fotky</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <div>
-      <div class="hero-badge">
-        <span>Tradiční letní akce</span>
-      </div>
-      <h1>O Zdelovské lávce</h1>
-      <p>
-        Zdelovská lávka je každoroční setkání přátel, rodin a všech, kteří mají rádi pohodu u vody.
-        Soutěže, večerní posezení a přátelská atmosféra jsou základem celé akce.
-      </p>
-      <div class="hero-meta">
-        <span>📍 Zdelov a okolí</span>
-        <span>📅 Léto, každý rok</span>
-        <span>👨‍👩‍👧‍👦 Pro všechny věkové kategorie</span>
-      </div>
-      
-    </div>
+  <!-- 🧩 Fonty -->
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin>
 
-    <div class="hero-illu" aria-hidden="true">
-      <div class="hero-illu-inner">
-        <div>
-          <h2>Den u vody</h2>
-          <p>
-            Soutěže na lávce , dobré jídlo, pití a hudba. Přijď se podívat nebo rovnou soutěžit.
-          </p>
-        </div>
-        <div class="hero-illu-footer">
-          <div>⏱ Program odpoledne až do večera</div>
-          <div>⭐ Domácí a přátelská atmosféra</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="fotky/favicon.png" />
 
-  <section>
-    <div class="two-cols">
-      <div>
-        <h2>Jak akce vznikla</h2>
-        <p>
-          Zdelovská lávka začala jako malá sousedská zábava a postupně se z ní stala tradice, na kterou se
-          každý rok těší desítky lidí z okolí.
-        </p>
-        <p>
-          Každý ročník je trochu jiný – mění se disciplíny, doprovodné aktivity i večerní program.
-        </p>
-      </div>
-      
-    </div>
-  </section>
+<style>
+  /* --- Styl pouze pro tuto stránku --- */
 
-  <section id="plakat">
-    <h2>Plakát akce</h2>
-    <div class="two-cols">
-      <div class="poster-wrapper">
-        <img src="plakát/web_lavka_2024.jpg" alt="Plakát akce Zdelovská lávka" class="poster-img">
-      </div>
-      
-    </div>
-  </section>
- 
-</main>
-
-<!-- 🔽 PATIČKA STRÁNKY -->
-<footer>
-  <div class="footer-inner">
-
-    <!-- Copyright text -->
-    <div class="footer-info">
-      © <span id="year"></span> Zdelovská lávka
-    </div>
-
-    <!-- Sekce sponzorů -->
-    <div class="sponsors">
-      <h4>Naši sponzoři</h4>
-
-      <!-- Obrázky/loga sponzorů -->
-      <div class="sponsor-logos">
-        <img src="sponsors/hptronic.jpg" alt="HP Tronic" />
-        <img src="sponsors/skodaauto.jpg" alt="Škoda Auto" />
-        <img src="sponsors/slevomat.png" alt="Slevomat" />
-        <img src="sponsors/teliacom.png" alt="Teliacom" />
-        <img src="sponsors/telux_banner3.webp" alt="Telux" />
-        <!-- 🧩 můžeš přidat další loga podle potřeby -->
-      </div>
-    </div>
-
-  </div>
-</footer>
-
-<!-- JavaScript pro aktuální rok -->
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
-
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  main.detail {
+    max-width: 900px;
+    margin: 5rem auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 2rem 4rem;
+    text-align: center;
+    line-height: 1.8;
   }
 
-  let lastScrollY = window.scrollY;
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (!header) return;
+  main.detail h1 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    text-transform: none; /* žádné velké písmo */
+    letter-spacing: 0;
+    color: #000;
+    border: none; /* bez čáry vlevo */
+    padding: 0;
+  }
 
-    if (window.scrollY > lastScrollY) {
-      header.classList.add("hide");
-    } else {
-      header.classList.remove("hide");
+  main.detail h2 {
+    font-size: 1.8rem;
+    margin: 3rem 0 1.5rem;
+    color: #000;
+    font-weight: 700;
+    text-align: center;
+    border: none; /* bez čáry */
+    padding: 0;
+  }
+
+  main.detail p {
+    color: #333;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .poster-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .poster-wrapper img {
+    max-width: 720px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .poster-wrapper img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+
+  @media (max-width: 768px) {
+    main.detail {
+      padding: 0 1.2rem 3rem;
     }
-    lastScrollY = window.scrollY;
-  });
-</script>
 
+    main.detail h1 {
+      font-size: 2.1rem;
+    }
+
+    main.detail h2 {
+      font-size: 1.5rem;
+    }
+
+    .poster-wrapper img {
+      max-width: 100%;
+    }
+  }
+</style>
+
+
+
+
+</head>
+
+<body>
+  <!-- === HLAVIČKA === -->
+  <header>
+    <a href="index.html" class="banner-link" aria-label="Zpět na hlavní stránku"></a>
+
+    <div class="nav-bar">
+      <div class="burger" id="burger" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </div>
+
+      <nav aria-label="Hlavní navigace">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">Novinky</a></li>
+          <li><a href="o-akci.html" class="active">O akci</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="informace.html">Informace</a></li>
+          <li><a href="fotky.html">Fotky</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- === HLAVNÍ OBSAH === -->
+  <main class="detail">
+    <h1>O Zdelovské lávce</h1>
+    <p>
+     Zdelovská lávka je každoroční soutěžní akce, která spojuje zábavu, sportovní výkony a přátelskou atmosféru. Soutěž je rozdělena do tří disciplín:
+
+běh po pevné lávce,
+
+běh s trakařem přes pevnou lávku,
+
+běh přes plovoucí lávku.
+
+Cílem soutěžících je zvládnout jednotlivé disciplíny v co nejkratším čase a bez pádu do vody. Každý pokus prověří rychlost, rovnováhu i obratnost, zatímco diváci se mohou těšit na napínavou a zábavnou podívanou.
+    </p>
+
+    <p>
+      Akce se koná každé léto v areálu bývalého koupaliště Zdelov a každoročně přiláká desítky účastníků
+      i stovky diváků. Během dne probíhá bohatý doprovodný program, občerstvení a večerní zábava.
+    </p>
+
+    <h2>Jak akce vznikla</h2>
+    <p>
+      Zakladatelem Zdelovské lávky byl Miroslav Bozetický, který stál u zrodu této soutěže a výrazně se zasloužil o její podobu i rozvoj. 
+      Na organizaci akce se dnes podílejí místní obyvatelé a Zdelovští dobrovolní hasiči, díky nimž se tradice každoročně úspěšně udržuje.
+    </p>
+
+    <h2>Plakát akce 2024</h2>
+    <div class="poster-wrapper">
+      <img src="plakát/web_lavka_2024.jpg" alt="Plakát akce Zdelovská lávka 2024" loading="lazy">
+    </div>
+  </main>
+
+  <!-- === PATIČKA === -->
+  <footer>
+    <div class="footer-inner">
+      <p>© <span id="year"></span> Zdelovská lávka</p>
+
+      <div class="sponsors-section">
+        <h3>Partneři a sponzoři</h3>
+        <div class="sponsor-logos">
+          <img src="sponsors/hptronic.jpg" alt="HP Tronic" loading="lazy" />
+          <img src="fotky/sponzori/a-zchlazeni.png" alt="A-Z Chlazení" loading="lazy" />
+          <img src="fotky/sponzori/bencklenoty.png" alt="Benck Lenoty" loading="lazy" />
+          <img src="fotky/sponzori/blackdrops.png" alt="Black Drops" loading="lazy" />
+          <img src="fotky/sponzori/clock.png" alt="Clock" loading="lazy" />
+          <img src="fotky/sponzori/enzltransport.png" alt="Enzl Transport" loading="lazy" />
+          <img src="fotky/sponzori/mestoborohradek.png" alt="Město Borohrádek" loading="lazy" />
+          <img src="fotky/sponzori/obeczdelov.png" alt="Obec Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/realtrading.png" alt="Real Trading" loading="lazy" />
+          <img src="fotky/sponzori/slevomat.png" alt="Slevomat" loading="lazy" />
+          <img src="fotky/sponzori/teliacom.png" alt="TeliaCom" loading="lazy" />
+          <img src="fotky/sponzori/telux.png" alt="Telux" loading="lazy" />
+          <img src="fotky/sponzori/uhlivilimek.png" alt="Uhlí Vilímek" loading="lazy" />
+          <img src="fotky/sponzori/zdelovskahospoda.png" alt="Zdelovská hospoda" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- === SCRIPTS === -->
+  <script>
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("navLinks");
+    burger.addEventListener("click", () => navLinks.classList.toggle("show"));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

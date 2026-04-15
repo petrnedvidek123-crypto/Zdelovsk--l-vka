@@ -1,0 +1,1 @@
+img.style.setProperty("--i", index);
