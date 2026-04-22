@@ -4,24 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Novinky a aktuální informace k akci Zdelovská lávka." />
-  <title>Zdelovská lávka – hlavní stránka</title>
+  <title>Zdelovská lávka - hlavní stránka</title>
 
-  <!-- 🖼️ Preload banneru -->
   <link rel="preload" as="image" href="fotky/banner header.png" />
 
-  <!-- 🧩 Fonty -->
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/BBHBartle.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/BBHBartle.woff2" crossorigin />
 
-  <!-- 🎨 Hlavní styl -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- 🖋️ Favicona -->
   <link rel="icon" type="image/png" href="fotky/favicon.png" />
 
-  <!-- 🔍 Strukturovaná data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,111 +30,155 @@
   }
   </script>
 </head>
-
 <body>
-
-  <!-- === HLAVIČKA === -->
   <header>
     <div class="nav-bar">
       <div class="nav-left">
-        <!-- Logo -->
-        <a href="index.html" class="logo">
-          <img src="fotky/banner header.png" alt="Zdelovská lávka logo">
+        <a href="index.html" class="logo" aria-label="Zdelovská lávka - hlavní stránka">
+          <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
         </a>
 
-        <!-- Datum akce -->
-        <a href="program.html" class="event-date">
-          <img src="fotky/png text banner.png" alt="Datum akce 2026" />
+        <a href="program.html" class="event-date" aria-label="Přejít na program akce">
+          <img src="fotky/png text banner.png" alt="Datum akce 25/7/2026" />
         </a>
       </div>
 
       <nav aria-label="Hlavní navigace">
         <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="active">Novinky</a></li>
+          <li><a href="index.html" class="active" aria-current="page">Novinky</a></li>
           <li><a href="o-akci.html">O akci</a></li>
           <li><a href="program.html">Program</a></li>
           <li><a href="informace.html">Informace</a></li>
           <li><a href="fotky.html">Fotky</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
-       
-</div>
-
       </nav>
 
-      <div class="burger" id="burger" aria-label="Otevřít menu">
+      <button
+        type="button"
+        class="burger"
+        id="burger"
+        aria-label="Otevřít menu"
+        aria-controls="navLinks"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
   <section class="hero">
-  <!-- === PŘEKRYVNÝ OBRÁZEK NAD VIDEEM === -->
-  <div class="video-overlay">
-    <img src="fotky/zdelovskalavka.png" alt="Zdelovská lávka 2026" class="overlay-img">
-  </div>
-
-  <!-- === POZADÍ VIDEO === -->
-  <video autoplay muted loop playsinline class="background-video">
-    <source src="videa/video lavka2.mp4" type="video/mp4">
-    Tvůj prohlížeč nepodporuje video tag.
-  </video>
-
-  <!-- === ODPOČET === -->
-  <div class="countdown-container">
-    <div id="countdown">
-      <span>
-        <span class="count-value" id="days">00</span>
-        <span class="count-label">DNY</span>
-      </span>
-      <span>
-        <span class="count-value" id="hours">00</span>
-        <span class="count-label">HOD</span>
-      </span>
-      <span>
-        <span class="count-value" id="minutes">00</span>
-        <span class="count-label">MIN</span>
-      </span>
-      <span>
-        <span class="count-value" id="seconds">00</span>
-        <span class="count-label">SEK</span>
-      </span>
+    <div class="video-overlay">
+      <img src="fotky/zdelovskalavka.png" alt="Zdelovská lávka 2026" class="overlay-img" />
     </div>
-  </div>
-</section>
 
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="videa/video lavka2.mp4" type="video/mp4" />
+      Tvůj prohlížeč nepodporuje video tag.
+    </video>
 
-  <!-- === HLAVNÍ OBSAH === -->
-  <main class="main-content" role="main">
-    <section class="news-grid">
-      <article class="card">
-        <a href="program.html">
-          <img src="fotky/DSC_6867.jpg" alt="Přípravy na další ročník" class="news-thumb" loading="lazy" />
-        </a>
-      </article>
-    </section>
+    <div class="countdown-container">
+      <div id="countdown" aria-label="Odpočet do akce">
+        <span>
+          <span class="count-value" id="days">00</span>
+          <span class="count-label">DNY</span>
+        </span>
+        <span>
+          <span class="count-value" id="hours">00</span>
+          <span class="count-label">HOD</span>
+        </span>
+        <span>
+          <span class="count-value" id="minutes">00</span>
+          <span class="count-label">MIN</span>
+        </span>
+        <span>
+          <span class="count-value" id="seconds">00</span>
+          <span class="count-label">SEK</span>
+        </span>
+      </div>
+    </div>
+  </section>
 
-    <section class="news-grid">
-      <article class="card">
-        <a href="indexnovinky/shrnutí zdelovské lávky.html">
-          <img src="fotky/shrnutizdel.png" alt="Nejlepší momenty z loňska" class="news-thumb" loading="lazy" width="1280" height="720" />
-        </a>
-      </article>
-    </section>
+  <main class="main-content">
+    <section class="news-section" aria-labelledby="novinky-heading">
+      <div class="news-header">
+        <div>
+          <p class="news-kicker">Novinky</p>
+          <h2 id="novinky-heading">Co je nového kolem Zdelovské lávky</h2>
+        </div>
 
-    <section class="news-grid">
-      <article class="card">
-        <a href="indexnovinky/pozarkoupaliste.html">
-          <img src="fotky/pozarkoupalistesekce.png" alt="Požár areálu koupaliště Zdelov" class="news-thumb" loading="lazy" />
-        </a>
-      </article>
+        <div class="news-controls" aria-label="Ovládání novinek">
+          <button type="button" class="news-arrow" id="newsPrev" aria-label="Předchozí novinka">
+            &#8592;
+          </button>
+          <button type="button" class="news-arrow" id="newsNext" aria-label="Další novinka">
+            &#8594;
+          </button>
+        </div>
+      </div>
+
+      <div class="news-slider" id="newsSlider">
+        <article class="news-card">
+          <a href="program.html" class="news-card-link">
+            <img src="fotky/DSC_6867.jpg" alt="Přípravy na další ročník" class="news-thumb" loading="lazy" />
+            <div class="news-card-content">
+              <p class="news-meta">Aktualizováno 22. 4. 2026</p>
+              <h3>Přípravy na další ročník</h3>
+              <p>
+                Sledujte první informace k letošnímu ročníku, postupně doplňovaný program a
+                vše důležité, co se kolem akce právě chystá.
+              </p>
+              <span class="news-readmore">Číst více</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card">
+          <a href="indexnovinky/shrnutí zdelovské lávky.html" class="news-card-link">
+            <img
+              src="fotky/shrnutizdel.png"
+              alt="Nejlepší momenty z loňska"
+              class="news-thumb"
+              loading="lazy"
+              width="1280"
+              height="720"
+            />
+            <div class="news-card-content">
+              <p class="news-meta">Shrnutí minulého ročníku</p>
+              <h3>Nejlepší momenty z loňska</h3>
+              <p>
+                Připomeňte si atmosféru minulého ročníku, nejhezčí momenty celé akce a to, co
+                zůstalo návštěvníkům nejvíc v paměti.
+              </p>
+              <span class="news-readmore">Číst více</span>
+            </div>
+          </a>
+        </article>
+
+        <article class="news-card">
+          <a href="indexnovinky/pozarkoupaliste.html" class="news-card-link">
+            <img src="fotky/pozarkoupalistesekce.png" alt="Požár areálu koupaliště Zdelov" class="news-thumb" loading="lazy" />
+            <div class="news-card-content">
+              <p class="news-meta">Mimořádná událost</p>
+              <h3>Požár areálu koupaliště Zdelov</h3>
+              <p>
+                Aktuální informace k mimořádné události, jejím dopadům a dalším krokům, které se
+                týkají areálu i plánování celé akce.
+              </p>
+              <span class="news-readmore">Číst více</span>
+            </div>
+          </a>
+        </article>
+      </div>
+
+      <div class="news-dots" id="newsDots" aria-label="Pozice v novinkách"></div>
     </section>
   </main>
 
-  <!-- === PATIČKA === -->
   <footer>
     <div class="footer-inner">
-      <p>© <span id="year"></span> Zdelovská lávka</p>
+      <p>&copy; <span id="year"></span> Zdelovská lávka</p>
 
       <div class="sponsors-section">
         <h3>Partneři a sponzoři</h3>
@@ -164,59 +202,196 @@
     </div>
   </footer>
 
-  <!-- === SCRIPTS === -->
   <script>
-    // 🍔 Burger menu
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-    burger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-
-    // 📅 Rok v patičce
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // 🖼️ Obrázky – fade-in efekt
     document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      const navBackdrop = document.getElementById("navBackdrop");
+      const newsSlider = document.getElementById("newsSlider");
+      const newsPrev = document.getElementById("newsPrev");
+      const newsNext = document.getElementById("newsNext");
+      const newsDots = document.getElementById("newsDots");
+      const year = document.getElementById("year");
+      const countdownElement = document.getElementById("countdown");
+      const video = document.querySelector(".background-video");
+
+      const closeMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Otevřít menu");
+        navLinks.classList.remove("show");
+        navBackdrop.hidden = true;
+        document.body.classList.remove("menu-open");
+      };
+
+      const openMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Zavřít menu");
+        navLinks.classList.add("show");
+        navBackdrop.hidden = false;
+        document.body.classList.add("menu-open");
+      };
+
+      if (burger && navLinks && navBackdrop) {
+        burger.addEventListener("click", () => {
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+          if (isExpanded) {
+            closeMenu();
+            return;
+          }
+
+          openMenu();
+        });
+
+        navBackdrop.addEventListener("click", closeMenu);
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeMenu();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            closeMenu();
+          }
+        });
+      }
+
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+
       document.querySelectorAll(".news-thumb").forEach((img) => {
         if (img.complete) {
           img.classList.add("loaded");
         } else {
-          img.addEventListener("load", () => img.classList.add("loaded"));
+          img.addEventListener("load", () => img.classList.add("loaded"), { once: true });
         }
       });
-    });
 
-    // 🎥 Video fade-in
-    const video = document.querySelector('.background-video');
-    video.addEventListener('loadeddata', () => {
-      video.classList.add('loaded');
-    });
-
-    // 🕒 ODPOČET DO AKCE (25. 7. 2026, 14:00)
-    const targetDate = new Date("July 25, 2026 14:00:00").getTime();
-
-    const countdown = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
-
-      if (distance <= 0) {
-        clearInterval(countdown);
-        document.getElementById("countdown").innerHTML =
-          "<span class='count-value'>AKCE ZAČALA!</span>";
-        return;
+      if (video) {
+        video.addEventListener("loadeddata", () => {
+          video.classList.add("loaded");
+        }, { once: true });
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (newsSlider && newsPrev && newsNext && newsDots) {
+        const slides = Array.from(newsSlider.querySelectorAll(".news-card"));
+        let currentIndex = 0;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let autoSlide;
 
-      document.getElementById("days").textContent = String(days).padStart(2, "0");
-      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-    }, 1000);
+        slides.forEach((_, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "news-dot";
+          dot.setAttribute("aria-label", `Přejít na novinku ${index + 1}`);
+          dot.addEventListener("click", () => goToSlide(index));
+          newsDots.appendChild(dot);
+        });
+
+        const dots = Array.from(newsDots.querySelectorAll(".news-dot"));
+
+        const updateSlider = () => {
+          newsSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+          });
+        };
+
+        const goToSlide = (index) => {
+          currentIndex = (index + slides.length) % slides.length;
+          updateSlider();
+        };
+
+        const startAutoSlide = () => {
+          window.clearInterval(autoSlide);
+          autoSlide = window.setInterval(() => {
+            goToSlide(currentIndex + 1);
+          }, 5000);
+        };
+
+        const stopAutoSlide = () => {
+          window.clearInterval(autoSlide);
+        };
+
+        newsPrev.addEventListener("click", () => {
+          goToSlide(currentIndex - 1);
+          startAutoSlide();
+        });
+
+        newsNext.addEventListener("click", () => {
+          goToSlide(currentIndex + 1);
+          startAutoSlide();
+        });
+
+        newsSlider.addEventListener("mouseenter", stopAutoSlide);
+        newsSlider.addEventListener("mouseleave", startAutoSlide);
+        newsSlider.addEventListener("touchstart", stopAutoSlide, { passive: true });
+        newsSlider.addEventListener("focusin", stopAutoSlide);
+        newsSlider.addEventListener("focusout", startAutoSlide);
+
+        newsSlider.addEventListener("touchstart", (event) => {
+          touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
+
+        newsSlider.addEventListener("touchend", (event) => {
+          touchEndX = event.changedTouches[0].clientX;
+          const swipeDistance = touchEndX - touchStartX;
+
+          if (Math.abs(swipeDistance) < 40) return;
+
+          if (swipeDistance < 0) {
+            goToSlide(currentIndex + 1);
+          } else {
+            goToSlide(currentIndex - 1);
+          }
+
+          startAutoSlide();
+        }, { passive: true });
+
+        updateSlider();
+        startAutoSlide();
+      }
+
+      const targetDate = new Date(2026, 6, 25, 14, 0, 0).getTime();
+
+      const countdown = window.setInterval(() => {
+        const now = Date.now();
+        const distance = targetDate - now;
+
+        if (distance <= 0) {
+          window.clearInterval(countdown);
+          if (countdownElement) {
+            countdownElement.innerHTML = "<span class=\"count-value\">AKCE ZAČALA!</span>";
+          }
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        const daysElement = document.getElementById("days");
+        const hoursElement = document.getElementById("hours");
+        const minutesElement = document.getElementById("minutes");
+        const secondsElement = document.getElementById("seconds");
+
+        if (daysElement) daysElement.textContent = String(days).padStart(2, "0");
+        if (hoursElement) hoursElement.textContent = String(hours).padStart(2, "0");
+        if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, "0");
+        if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, "0");
+      }, 1000);
+    });
   </script>
 </body>
 </html>
