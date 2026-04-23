@@ -54,6 +54,25 @@ video {
   max-width: 100%;
 }
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* =====================================================
    HEADER & NAVIGACE
    ===================================================== */
@@ -88,7 +107,7 @@ header {
   align-items: center;
   gap: 0.1rem;
   flex: 0 0 auto;
-  margin-left: -5.2rem;
+  margin-left: -7rem;
 }
 
 .logo {
@@ -109,6 +128,7 @@ header {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  transform: translateY(5px);
 }
 
 .event-date img {
@@ -123,9 +143,9 @@ header {
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(255, 183, 0, 0.28),
-    rgba(255, 196, 36, 0.14),
-    rgba(255, 170, 0, 0.06)
+    rgba(255, 200, 60, 0.55),
+    rgba(255, 208, 90, 0.28),
+    rgba(255, 174, 0, 0.1)
   );
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -139,7 +159,7 @@ header {
 
 .event-date:hover img,
 .event-date:focus-visible img {
-  animation: dateWipeBlink 0.7s ease;
+  animation: dateWipeBlink 0.8s ease;
 }
 
 .event-date:focus-visible {
@@ -157,23 +177,23 @@ header {
 
   35% {
     clip-path: inset(0 0 0 100%);
-    opacity: 0.15;
-    transform: translateX(4px);
-    filter: brightness(1.15) drop-shadow(0 0 4px rgba(255, 183, 0, 0.35));
+    opacity: 0.12;
+    transform: translateX(5px);
+    filter: brightness(1.22) drop-shadow(0 0 8px rgba(255, 187, 0, 0.5));
   }
 
   36% {
     clip-path: inset(0 100% 0 0);
-    opacity: 0.15;
-    transform: translateX(-4px);
-    filter: brightness(1.15) drop-shadow(0 0 4px rgba(255, 183, 0, 0.35));
+    opacity: 0.12;
+    transform: translateX(-5px);
+    filter: brightness(1.22) drop-shadow(0 0 8px rgba(255, 187, 0, 0.5));
   }
 
   100% {
     clip-path: inset(0 0 0 0);
     opacity: 1;
     transform: translateX(0);
-    filter: brightness(1.04) drop-shadow(0 0 3px rgba(255, 183, 0, 0.18));
+    filter: brightness(1.08) drop-shadow(0 0 6px rgba(255, 187, 0, 0.28));
   }
 }
 
@@ -181,17 +201,16 @@ header {
   list-style: none;
   display: flex;
   gap: 2rem;
-  transform: none;
   justify-content: flex-end;
 }
 
 .nav-links a {
+  font-family: "Montserrat", Arial, sans-serif;
   text-decoration: none;
   color: #000;
   font-weight: 700;
   text-transform: uppercase;
   position: relative;
-  font-family: "Montserrat", Arial, sans-serif;
 }
 
 .nav-links a::after {
@@ -213,6 +232,12 @@ header {
   transform: scaleX(1);
 }
 
+.nav-links a:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 6px;
+  border-radius: 3px;
+}
+
 .burger {
   display: none;
   flex-direction: column;
@@ -220,13 +245,31 @@ header {
   cursor: pointer;
   border: 0;
   background: transparent;
-  padding: 0;
+  padding: 0.2rem;
 }
 
 .burger span {
   width: 25px;
   height: 3px;
   background: #000;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.burger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.burger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.burger:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 4px;
 }
 
 .nav-backdrop {
@@ -260,6 +303,8 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
 
 .video-overlay {
@@ -283,10 +328,10 @@ header {
   background: rgba(22, 22, 22, 0.82);
   backdrop-filter: blur(5px);
   color: #fff;
-  font-family: "Montserrat", Arial, sans-serif;
   text-align: center;
   padding: 0.45rem 0;
   z-index: 3;
+  font-family: "Barlow Condensed", "Montserrat", Arial, sans-serif;
 }
 
 #countdown span {
@@ -295,16 +340,17 @@ header {
 }
 
 .count-value {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
 }
 
 .count-label {
   display: block;
-  font-size: 0.65em;
+  font-size: 0.72em;
   color: #ddd;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 /* =====================================================
@@ -332,6 +378,7 @@ header {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 2rem;
+  padding-left: 5rem;
 }
 
 .news-kicker {
@@ -350,6 +397,11 @@ header {
   max-width: 700px;
   font-weight: 700;
   font-family: "Montserrat", Arial, sans-serif;
+}
+
+.news-slider-viewport {
+  overflow: hidden;
+  width: 100%;
 }
 
 .news-controls {
@@ -373,11 +425,14 @@ header {
   color: #fff;
   font-size: 1.25rem;
   font-weight: 700;
-  font-family: "Montserrat", Arial, sans-serif;
   cursor: pointer;
   pointer-events: auto;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
-  transition: transform 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .news-arrow:hover,
@@ -402,7 +457,7 @@ header {
 
 .news-card {
   min-width: 100%;
-  padding: 0 0.15rem;
+  padding: 0;
 }
 
 .news-card-link {
@@ -413,10 +468,8 @@ header {
   text-decoration: none;
   color: inherit;
   background: transparent;
-  box-shadow: none;
 }
 
-/* Vychozi smer sklonu */
 .news-card .news-thumb,
 .news-card-content {
   position: relative;
@@ -431,44 +484,43 @@ header {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  clip-path: polygon(11% 0, 100% 0, 89% 100%, 0 100%);
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .news-card-content {
   z-index: 2;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding: 2.4rem 2.6rem 2.4rem 3.1rem;
-  margin-left: -5.3rem;
-  background: linear-gradient(180deg, rgba(250, 237, 208, 0.96) 0%, rgba(238, 213, 164, 0.96) 100%);
-  clip-path: polygon(11% 0, 100% 0, 89% 100%, 0 100%);
+  align-items: center;
+  padding: 2.4rem 2.9rem 2.4rem 3.35rem;
+  margin-left: -5.9rem;
+  background:
+    linear-gradient(180deg, rgba(251, 239, 210, 0.98) 0%, rgba(239, 214, 167, 0.96) 100%);
+  clip-path: polygon(14% 0, 100% 0, 86% 100%, 0 100%);
 }
 
-/* Druhy prispevek - opacny smer */
-.news-card:nth-child(even) .news-thumb {
-  clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);
-}
-
-.news-card:nth-child(even) .news-card-content {
-  clip-path: polygon(0 0, 89% 0, 100% 100%, 11% 100%);
-  margin-left: -5.3rem;
-  padding: 2.4rem 3.1rem 2.4rem 2.6rem;
+.news-card-inner {
+  --card-skew: -8deg;
+  width: min(100%, 410px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .news-card-content::before {
   content: "";
   position: absolute;
-  top: 1.2rem;
-  left: 3.1rem;
-  width: 56px;
+  top: 1.3rem;
+  left: 50%;
+  width: 64px;
   height: 4px;
   border-radius: 999px;
   background: linear-gradient(90deg, #f5b000, #ffcc4d);
-}
-
-.news-card:nth-child(even) .news-card-content::before {
-  left: 2.6rem;
+  transform: translateX(-50%);
 }
 
 .news-card-link:hover .news-thumb,
@@ -480,29 +532,49 @@ header {
     0 8px 22px rgba(245, 176, 0, 0.14);
 }
 
+.news-card-link:focus-visible {
+  outline: none;
+}
+
 .news-meta {
-  font-size: 0.8rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  align-self: center;
+  white-space: nowrap;
+  transform: skewX(var(--card-skew));
+  font-size: 0.98rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #8b4d00;
-  margin-bottom: 1.2rem;
-  margin-top: 1rem;
-  font-family: "Montserrat", Arial, sans-serif;
+  color: #5a4631;
+  margin-bottom: 1rem;
+  margin-top: 0.7rem;
+  font-family: "Barlow Condensed", "Montserrat", Arial, sans-serif;
 }
 
 .news-card-content h3 {
-  font-size: clamp(1.5rem, 2vw, 2.15rem);
-  line-height: 1.12;
+  display: inline-block;
+  align-self: center;
+  text-align: center;
+  transform: skewX(var(--card-skew));
+  max-width: 11ch;
+  font-size: clamp(2.6rem, 3.5vw, 3.7rem);
+  line-height: 0.92;
   margin-bottom: 1rem;
-  color: #1f1608;
-  font-weight: 700;
-  font-family: "Montserrat", Arial, sans-serif;
+  color: #1d140a;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", "Montserrat", Arial, sans-serif;
 }
 
 .news-card-content p {
-  font-size: 1.02rem;
-  line-height: 1.72;
+  display: inline-block;
+  transform: skewX(var(--card-skew));
+  max-width: 27ch;
+  font-size: 1rem;
+  line-height: 1.55;
   color: #2f2416;
   font-weight: 600;
   font-family: "Montserrat", Arial, sans-serif;
@@ -514,15 +586,16 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 1.2rem;
+  transform: skewX(var(--card-skew));
+  padding: 0.9rem 1.35rem;
   border-radius: 999px;
   background: #111;
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Barlow Condensed", "Montserrat", Arial, sans-serif;
   transition: background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
@@ -550,6 +623,16 @@ header {
   transition: transform 0.25s ease, background-color 0.25s ease, width 0.25s ease;
 }
 
+.news-dot:hover,
+.news-dot:focus-visible {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.news-dot:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 4px;
+}
+
 .news-dot.active {
   width: 28px;
   border-radius: 999px;
@@ -557,19 +640,9 @@ header {
   transform: scale(1.02);
 }
 
-.news-thumb {
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
 .news-thumb.loaded,
 .background-video.loaded {
   opacity: 1;
-}
-
-.background-video {
-  opacity: 0;
-  transition: opacity 0.45s ease;
 }
 
 /* =====================================================
@@ -593,6 +666,7 @@ footer {
 .footer-inner > p {
   margin-bottom: 0.9rem;
   font-weight: 600;
+  color: #8e8e8e;
 }
 
 .sponsors-section {
@@ -601,25 +675,59 @@ footer {
 
 .sponsors-section h3 {
   font-size: 1rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
   font-weight: 700;
   font-family: "Montserrat", Arial, sans-serif;
 }
 
 .sponsor-logos {
-  margin: 0.9rem auto 0;
-  max-width: 1000px;
+  margin: 1rem auto 0;
+  max-width: 1120px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 0.9rem 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 1.1rem 1.4rem;
   align-items: center;
+  justify-items: center;
 }
 
 .sponsor-logos img {
-  max-width: 120px;
-  max-height: 46px;
+  width: 100px;
+  height: 54px;
   object-fit: contain;
+  object-position: center;
   margin: 0 auto;
+}
+
+.sponsor-logos img[alt="Oseva Agri"] {
+  width: 116px;
+  height: 60px;
+}
+
+.sponsor-logos img[alt="Obec Zdelov"] {
+  width: 112px;
+  height: 60px;
+}
+
+.sponsor-logos img[alt="Truhlářství Syrový"],
+.sponsor-logos img[alt="Farma Tichý"] {
+  width: 118px;
+  height: 62px;
+}
+
+.sponsor-logos img[alt="Strabag"],
+.sponsor-logos img[alt="Agroserviszamel"] {
+  width: 128px;
+  height: 66px;
+}
+
+.sponsor-logos img[alt="Clock"] {
+  width: 86px;
+  height: 46px;
+}
+
+.sponsor-logos img[alt="TeliaCom"] {
+  width: 84px;
+  height: 46px;
 }
 
 /* =====================================================
@@ -633,12 +741,16 @@ footer {
   }
 
   .nav-left {
-    margin-left: -1.2rem;
+    margin-left: -2.5rem;
     gap: 0.25rem;
   }
 
   .logo img {
     height: 5rem;
+  }
+
+  .event-date {
+    transform: translateY(4px);
   }
 
   .event-date img {
@@ -655,31 +767,21 @@ footer {
   }
 
   .news-card .news-thumb {
-    clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
+    clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
   }
 
   .news-card-content {
-    clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
-    margin-left: -4.4rem;
-    padding: 2.2rem 2.2rem 2.2rem 2.7rem;
+    clip-path: polygon(12% 0, 100% 0, 88% 100%, 0 100%);
+    margin-left: -4.9rem;
+    padding: 2.2rem 2.2rem 2.2rem 2.8rem;
   }
 
-  .news-card:nth-child(even) .news-thumb {
-    clip-path: polygon(0 0, 91% 0, 100% 100%, 9% 100%);
+  .news-card-inner {
+    width: min(100%, 370px);
   }
 
-  .news-card:nth-child(even) .news-card-content {
-    clip-path: polygon(0 0, 91% 0, 100% 100%, 9% 100%);
-    margin-left: -4.4rem;
-    padding: 2.2rem 2.7rem 2.2rem 2.2rem;
-  }
-
-  .news-card-content::before {
-    left: 2.7rem;
-  }
-
-  .news-card:nth-child(even) .news-card-content::before {
-    left: 2.2rem;
+  .news-header {
+    padding-left: 3.5rem;
   }
 
   .news-controls {
@@ -741,7 +843,6 @@ footer {
   }
 
   .nav-links {
-    transform: none;
     display: none;
     flex-direction: column;
     position: fixed;
@@ -796,6 +897,7 @@ footer {
     align-items: flex-start;
     flex-direction: column;
     margin-bottom: 1.3rem;
+    padding-left: 1.2rem;
   }
 
   .news-controls {
@@ -808,35 +910,41 @@ footer {
 
   .news-card-link {
     grid-template-columns: 1fr;
-    gap: 0;
     min-height: auto;
   }
 
   .news-card .news-thumb,
-  .news-card-content,
-  .news-card:nth-child(even) .news-thumb,
-  .news-card:nth-child(even) .news-card-content {
+  .news-card-content {
     min-height: auto;
-    clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
+    clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
   }
 
   .news-card .news-thumb {
     aspect-ratio: 16 / 9;
   }
 
-  .news-card-content,
-  .news-card:nth-child(even) .news-card-content {
+  .news-card-content {
     margin-left: 0;
     margin-top: -1.1rem;
-    padding: 1.6rem 1.4rem 1.7rem 1.9rem;
+    padding: 1.8rem 1.5rem 1.9rem;
   }
 
-  .news-card-content::before,
-  .news-card:nth-child(even) .news-card-content::before {
-    left: 1.9rem;
+  .news-card-inner {
+    width: min(100%, 330px);
+  }
+
+  .news-meta {
+    white-space: normal;
+    font-size: 0.84rem;
+  }
+
+  .news-card-content h3 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+    max-width: 11ch;
   }
 
   .news-card-content p {
+    max-width: 26ch;
     font-size: 0.98rem;
   }
 
@@ -845,13 +953,45 @@ footer {
   }
 
   .sponsor-logos {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 0.8rem 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1rem;
   }
 
   .sponsor-logos img {
-    max-width: 110px;
-    max-height: 42px;
+    width: 88px;
+    height: 48px;
+  }
+
+  .sponsor-logos img[alt="Oseva Agri"] {
+    width: 100px;
+    height: 54px;
+  }
+
+  .sponsor-logos img[alt="Obec Zdelov"] {
+    width: 96px;
+    height: 52px;
+  }
+
+  .sponsor-logos img[alt="Truhlářství Syrový"],
+  .sponsor-logos img[alt="Farma Tichý"] {
+    width: 102px;
+    height: 54px;
+  }
+
+  .sponsor-logos img[alt="Strabag"],
+  .sponsor-logos img[alt="Agroserviszamel"] {
+    width: 110px;
+    height: 58px;
+  }
+
+  .sponsor-logos img[alt="Clock"] {
+    width: 74px;
+    height: 40px;
+  }
+
+  .sponsor-logos img[alt="TeliaCom"] {
+    width: 74px;
+    height: 40px;
   }
 }
 
@@ -879,7 +1019,7 @@ footer {
   }
 
   .count-value {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .news-arrow {
@@ -895,11 +1035,22 @@ footer {
   .footer-inner {
     padding: 0 1rem;
   }
+
+  .sponsor-logos {
+    grid-template-columns: repeat(2, minmax(110px, 1fr));
+  }
 }
 
 @media (max-width: 360px) {
   #countdown span {
     min-width: 22px;
+  }
+
+  .news-meta,
+  .news-card-content h3,
+  .news-card-content p,
+  .news-readmore {
+    transform: none;
   }
 }
 
@@ -912,5 +1063,19 @@ footer {
 @media (min-width: 1900px) {
   html {
     font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
