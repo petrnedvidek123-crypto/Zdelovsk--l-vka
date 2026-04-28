@@ -3,92 +3,563 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Program akce Zdelovská lávka." />
-  <title>Program – Zdelovská lávka</title>
+  <meta name="description" content="Program akce Zdelovská lávka 2026." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Program | Zdelovská lávka 2026</title>
 
-  <!-- 🧩 Montserrat – stejné jako index -->
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin>
+  <link rel="preload" as="image" href="fotky/banner header.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin />
 
-  <!-- 🎨 Styl -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- 🖋️ Favicona -->
   <link rel="icon" type="image/png" href="fotky/favicon.png" />
+
+  <style>
+    :root {
+      --font-text: "Inter", "Montserrat", Arial, sans-serif;
+    }
+
+    .subpage-main {
+      background:
+        radial-gradient(circle at top left, rgba(255, 190, 92, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(88, 184, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, #fffef8 0%, #fff8ec 52%, #fff3df 100%);
+      padding: 5rem 0 4rem;
+    }
+
+    .program-page {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .program-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.65fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .program-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-sport);
+      font-size: 1rem;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a5a14;
+      transform: skewX(-7deg);
+    }
+
+    .program-kicker::before {
+      content: "";
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--yellow), #ffcf53);
+      box-shadow: 0 0 14px rgba(245, 176, 0, 0.28);
+    }
+
+    .program-page h1 {
+      max-width: 760px;
+      margin: 0 0 1.65rem;
+      font-family: var(--font-sport);
+      font-size: clamp(3rem, 7vw, 6.15rem);
+      line-height: 1.03;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .program-lead {
+      max-width: 690px;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .program-date-card {
+      justify-self: center;
+      width: min(100%, 340px);
+      padding: 2rem 1.7rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 235, 0.86));
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 18px 36px rgba(82, 56, 14, 0.1);
+      clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
+      text-align: center;
+    }
+
+    .program-date-card span {
+      display: block;
+      font-family: var(--font-sport);
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      transform: skewX(-7deg);
+    }
+
+    .program-date-card .date-day {
+      color: var(--ink);
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 0.9;
+    }
+
+    .program-date-card .date-meta {
+      margin-top: 0.7rem;
+      color: #7a5a14;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+    }
+
+    .timeline-section {
+      margin-bottom: 3.8rem;
+    }
+
+    .section-title {
+      margin: 0 0 1.5rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.04;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 1.2rem;
+      align-items: center;
+      padding: 1.1rem 1.35rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 235, 0.82));
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 10px 20px rgba(82, 56, 14, 0.08);
+      clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+    }
+
+    .timeline-time {
+      position: relative;
+      padding-left: 1.2rem;
+      font-family: var(--font-sport);
+      font-size: 1.75rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--ink);
+      transform: skewX(-7deg);
+    }
+
+    .timeline-time::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 6px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--yellow), #ffcf53);
+      box-shadow: 0 0 14px rgba(245, 176, 0, 0.25);
+      transform: translateY(-50%) skewX(-10deg);
+    }
+
+    .timeline-content h2 {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-sport);
+      font-size: 1.65rem;
+      line-height: 1.05;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .timeline-content p {
+      margin: 0;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      font-weight: 500;
+      font-style: italic;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .program-card {
+      position: relative;
+      min-height: 155px;
+      padding: 1.35rem 1.2rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 235, 0.86));
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 14px 28px rgba(82, 56, 14, 0.09);
+      clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+      overflow: hidden;
+    }
+
+    .program-card::before {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      top: 1.2rem;
+      width: 6px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--yellow), #ffcf53);
+      transform: skewX(-10deg);
+      box-shadow: 0 0 14px rgba(245, 176, 0, 0.25);
+    }
+
+    .program-card h2 {
+      margin: 0 0 0.75rem;
+      padding-left: 1.3rem;
+      font-family: var(--font-sport);
+      font-size: 1.55rem;
+      line-height: 1.05;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .program-card p {
+      margin: 0;
+      padding-left: 1.3rem;
+      color: #3a2a16;
+      font-family: var(--font-text);
+      font-size: 0.95rem;
+      line-height: 1.72;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .program-note {
+      width: min(100%, 560px);
+      margin: 0 0 0 auto;
+      padding: 1.05rem 1.35rem;
+      background: rgba(255, 255, 255, 0.28);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.05),
+        0 8px 18px rgba(82, 56, 14, 0.04);
+      clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
+      opacity: 0.82;
+    }
+
+    .program-note h2 {
+      margin: 0 0 0.45rem;
+      font-family: var(--font-sport);
+      font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .program-note p {
+      margin: 0;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 0.86rem;
+      line-height: 1.65;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    @media (max-width: 900px) {
+      .program-hero {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .program-page h1,
+      .program-kicker,
+      .section-title {
+        transform-origin: center;
+      }
+
+      .program-lead {
+        margin: 0 auto;
+        transform-origin: center;
+      }
+
+      .program-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .subpage-main {
+        padding: 3.2rem 0 3rem;
+      }
+
+      .program-page {
+        padding: 0 1rem;
+      }
+
+      .program-hero {
+        margin-bottom: 2.7rem;
+      }
+
+      .program-page h1 {
+        font-size: clamp(2.7rem, 15vw, 4.45rem);
+        line-height: 1.04;
+      }
+
+      .program-lead {
+        font-size: 0.98rem;
+        line-height: 1.82;
+      }
+
+      .program-date-card {
+        width: min(100%, 310px);
+        padding: 1.7rem 1.4rem;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        padding: 1.15rem 1.2rem 1.25rem;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .timeline-time {
+        padding-left: 1.15rem;
+      }
+
+      .program-card {
+        min-height: auto;
+        padding: 1.25rem 1.15rem;
+      }
+
+      .program-note {
+        width: min(100%, 420px);
+        margin: 0.5rem auto 0;
+        padding: 0.95rem 1.15rem;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .program-note h2 {
+        font-size: 1.35rem;
+      }
+
+      .program-note p {
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-  <!-- === HLAVIČKA (STEJNÁ JAKO INDEX) === -->
   <header>
-    <a href="index.html" class="banner-link" aria-label="Zpět na hlavní stránku"></a>
-
     <div class="nav-bar">
-      <div class="burger" id="burger" aria-label="Otevřít menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="nav-left">
+        <a href="index.html" class="logo" aria-label="Zdelovská lávka - hlavní stránka">
+          <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+        </a>
+
+        <a href="program.html" class="event-date" aria-label="Přejít na program akce">
+          <img src="fotky/png text banner.png" alt="Datum akce 25/7/2026" />
+        </a>
       </div>
 
       <nav aria-label="Hlavní navigace">
         <ul class="nav-links" id="navLinks">
+          <li class="nav-mobile-brand">
+            <a href="index.html" aria-label="Zdelovská lávka - hlavní stránka">
+              <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+            </a>
+          </li>
+
           <li><a href="index.html">Novinky</a></li>
           <li><a href="o-akci.html">O akci</a></li>
-          <li><a href="program.html" class="active">Program</a></li>
+          <li><a href="program.html" class="active" aria-current="page">Program</a></li>
           <li><a href="informace.html">Informace</a></li>
           <li><a href="fotky.html">Fotky</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
+
+          <li class="nav-mobile-socials" aria-label="Sociální sítě">
+            <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+              <img src="fotky/instagram.png" alt="Instagram" />
+            </a>
+
+            <span class="nav-social-handle">@Zdelovská lávka</span>
+
+            <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+              <img src="fotky/facebook.png" alt="Facebook" />
+            </a>
+          </li>
         </ul>
       </nav>
+
+      <button type="button" class="burger" id="burger" aria-label="Otevřít menu" aria-controls="navLinks" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
   </header>
 
-<main role="main">
+  <main class="subpage-main">
+    <div class="program-page">
+      <section class="program-hero" aria-labelledby="program-heading">
+        <div>
+          <p class="program-kicker">Sobota 25/7/2026</p>
+          <h1 id="program-heading">Program akce</h1>
+          <p class="program-lead">
+            Přehled hlavních bodů programu během dne. Časy jsou orientační a mohou se upravit podle průběhu soutěže, počasí a doprovodného programu.
+          </p>
+        </div>
 
-  <section class="news-grid">
+        <aside class="program-date-card" aria-label="Datum akce">
+          <span class="date-day">25/7</span>
+          <span class="date-meta">2026</span>
+        </aside>
+      </section>
 
-    <article>
-      <h2>Program Zdelovské lávky</h2>
-      <p>
-        Přehled hlavních bodů programu během dne. Časy jsou orientační
-        a mohou se lišit podle průběhu soutěže.
-      </p>
-    </article>
+      <section class="timeline-section" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading" class="section-title">Harmonogram dne</h2>
 
-    <article>
-      <h2>Harmonogram dne</h2>
-      <p><strong>14:00</strong> – Zahájení akce a přivítání návštěvníků</p>
-      <p><strong>14:30</strong> – Soutěž Zdelovská lávka (hlavní disciplíny)</p>
-      <p><strong>16:00</strong> – Doprovodný program pro děti</p>
-      <p><strong>17:30</strong> – Vyhlášení výsledků a předání cen</p>
-      <p><strong>19:00</strong> – Večerní zábava – PLAZMA</p>
-    </article>
+        <div class="timeline-list">
+          <article class="timeline-item">
+            <div class="timeline-time">13:30</div>
+            <div class="timeline-content">
+              <h2>Zahájení akce</h2>
+              <p>Začátek registrací. Přivítání návštěvníků, první informace k průběhu dne a otevření areálu.</p>
+            </div>
+          </article>
 
-    <article>
-      <h2>Soutěžní disciplíny</h2>
-      <ul>
-        <li>běh po pevné lávce</li>
-        <li>běh s trakařem přes pevnou lávku</li>
-        <li>běh přes plovoucí lávku</li>
-      </ul>
-    </article>
+          <article class="timeline-item">
+            <div class="timeline-time">14:30</div>
+            <div class="timeline-content">
+              <h2>Hlavní soutěž</h2>
+              <p>Zdelovská lávka a její soutěžní disciplíny pro odvážné účastníky.</p>
+            </div>
+          </article>
 
+          <article class="timeline-item">
+            <div class="timeline-time">17:30</div>
+            <div class="timeline-content">
+              <h2>Vyhlášení výsledků</h2>
+              <p>Předání cen, ocenění soutěžících a společné zakončení sportovní části.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-time">19:00</div>
+            <div class="timeline-content">
+              <h2>Večerní zábava</h2>
+              <p>Večerní program a zábava s kapelou PLAZMA.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="disciplines-heading">
+        <h2 id="disciplines-heading" class="section-title">Soutěžní disciplíny</h2>
+
+        <div class="program-grid">
+          <article class="program-card">
+            <h2>Pevná lávka</h2>
+            <p>Běh po pevné lávce v co nejkratším čase.</p>
+          </article>
+
+          <article class="program-card">
+            <h2>Trakař</h2>
+            <p>Běh s trakařem přes pevnou lávku, kde rozhoduje rychlost i přesnost.</p>
+          </article>
+
+          <article class="program-card">
+            <h2>Plovoucí lávka</h2>
+            <p>Běh přes plovoucí lávku, který prověří rovnováhu, odvahu i klidnou hlavu.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="program-note">
+        <h2>Program se může měnit</h2>
+        <p>
+          Časy berte jako orientační. Průběh se může změnit podle počtu soutěžících, počasí a situace v areálu.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <section class="section-divider" aria-label="Oddělovač obsahu a sponzorů">
+    <img src="fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
   </section>
 
-</main>
-
-
-
-  <!-- === PATIČKA (STEJNÁ JAKO INDEX) === -->
   <footer>
     <div class="footer-inner">
-      <p>© <span id="year"></span> Zdelovská lávka</p>
+      <div class="footer-socials" aria-label="Sociální sítě">
+        <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+          <img src="fotky/instagram.png" alt="Instagram" loading="lazy" />
+        </a>
+
+        <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+          <img src="fotky/facebook.png" alt="Facebook" loading="lazy" />
+        </a>
+      </div>
+
+      <p>&copy; <span id="year"></span> Zdelovská lávka</p>
 
       <div class="sponsors-section">
         <h3>Partneři a sponzoři</h3>
         <div class="sponsor-logos">
-          <img src="sponsors/hptronic.jpg" alt="HP Tronic" loading="lazy" />
+          <img src="fotky/sponzori/osevaagri.png" alt="Oseva Agri" loading="lazy" />
           <img src="fotky/sponzori/a-zchlazeni.png" alt="A-Z Chlazení" loading="lazy" />
           <img src="fotky/sponzori/bencklenoty.png" alt="Benck Lenoty" loading="lazy" />
           <img src="fotky/sponzori/blackdrops.png" alt="Black Drops" loading="lazy" />
@@ -100,23 +571,69 @@
           <img src="fotky/sponzori/slevomat.png" alt="Slevomat" loading="lazy" />
           <img src="fotky/sponzori/teliacom.png" alt="TeliaCom" loading="lazy" />
           <img src="fotky/sponzori/telux.png" alt="Telux" loading="lazy" />
-          <img src="fotky/sponzori/uhlivilimek.png" alt="Uhlí Vilímek" loading="lazy" />
+          <img src="fotky/sponzori/Farmatichy.png" alt="Farma Tichý" loading="lazy" />
           <img src="fotky/sponzori/zdelovskahospoda.png" alt="Zdelovská hospoda" loading="lazy" />
+          <img src="fotky/sponzori/truhlarstvi.png" alt="Truhlářství Syrový" loading="lazy" />
+          <img src="fotky/sponzori/sdhzdelov.jpg" alt="SDH Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/zea.png" alt="ZEA" loading="lazy" />
+          <img src="fotky/sponzori/Strabag.png" alt="Strabag" loading="lazy" />
+          <img src="fotky/sponzori/Agroserviszamel.png" alt="Agroserviszamel" loading="lazy" />
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- === SCRIPTS (STEJNÉ JAKO INDEX) === -->
   <script>
-    const burger = document.getElementById("burger");
-    const navLinks = document.getElementById("navLinks");
-    burger.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      const navBackdrop = document.getElementById("navBackdrop");
+      const year = document.getElementById("year");
+
+      const closeMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Otevřít menu");
+        navLinks.classList.remove("show");
+        navBackdrop.hidden = true;
+        document.body.classList.remove("menu-open");
+      };
+
+      const openMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Zavřít menu");
+        navLinks.classList.add("show");
+        navBackdrop.hidden = false;
+        document.body.classList.add("menu-open");
+      };
+
+      if (burger && navLinks && navBackdrop) {
+        burger.addEventListener("click", () => {
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+          if (isExpanded) closeMenu();
+          else openMenu();
+        });
+
+        navBackdrop.addEventListener("click", closeMenu);
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") closeMenu();
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
+
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
     });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

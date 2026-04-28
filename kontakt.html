@@ -1,114 +1,678 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <title>Kontakt – Zdelovská lávka</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kontakt na pořadatele akce Zdelovská lávka 2026." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Kontakt | Zdelovská lávka 2026</title>
+
+  <link rel="preload" as="image" href="fotky/banner header.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="fotky/favicon.png" />
+
+  <style>
+    :root {
+      --font-text: "Inter", "Montserrat", Arial, sans-serif;
+    }
+
+    .subpage-main {
+      background:
+        radial-gradient(circle at top left, rgba(255, 190, 92, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(88, 184, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, #fffef8 0%, #fff8ec 52%, #fff3df 100%);
+      padding: 5rem 0 4rem;
+    }
+
+    .contact-page {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.65fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .contact-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-sport);
+      font-size: 1rem;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a5a14;
+      transform: skewX(-7deg);
+    }
+
+    .contact-kicker::before {
+      content: "";
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--yellow), #ffcf53);
+      box-shadow: 0 0 14px rgba(245, 176, 0, 0.28);
+    }
+
+    .contact-page h1 {
+      max-width: 760px;
+      margin: 0 0 1.65rem;
+      font-family: var(--font-sport);
+      font-size: clamp(3rem, 7vw, 6.15rem);
+      line-height: 1.03;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .contact-lead {
+      max-width: 690px;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .contact-visual {
+      justify-self: center;
+      width: min(100%, 340px);
+      padding: 2.2rem 1.8rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 235, 0.82)),
+        radial-gradient(circle at top right, rgba(245, 176, 0, 0.18), transparent 38%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 18px 36px rgba(82, 56, 14, 0.1);
+      clip-path: polygon(7% 0, 100% 0, 93% 100%, 0 100%);
+      text-align: center;
+    }
+
+    .contact-visual img {
+      width: min(100%, 245px);
+      margin: 0 auto 1.4rem;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.08));
+    }
+
+    .contact-visual p {
+      margin: 0;
+      color: #7a5a14;
+      font-family: var(--font-sport);
+      font-size: 1.45rem;
+      line-height: 1.1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      transform: skewX(-7deg);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 3.8rem;
+    }
+
+    .contact-card {
+      position: relative;
+      padding: 1.75rem 1.65rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 235, 0.86));
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 16px 32px rgba(82, 56, 14, 0.1);
+      clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      overflow: hidden;
+    }
+
+    .contact-card-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.2rem;
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .contact-icon {
+      flex: 0 0 auto;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(245, 176, 0, 0.95), rgba(255, 207, 83, 0.92));
+      clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+      box-shadow: 0 10px 20px rgba(245, 176, 0, 0.18);
+    }
+
+    .contact-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-card h2 {
+      margin: 0;
+      font-family: var(--font-sport);
+      font-size: 2rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.75rem;
+      padding-left: 0.35rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      width: fit-content;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 1rem;
+      line-height: 1.45;
+      font-weight: 600;
+      font-style: italic;
+      text-decoration: none;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+      transition: color 0.2s ease;
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus-visible {
+      color: #a07100;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .contact-links a:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 4px;
+    }
+
+    .form-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.72fr) minmax(360px, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .form-copy h2,
+    .form-panel h2 {
+      margin: 0 0 1rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.04;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .form-copy p {
+      margin: 0;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      font-weight: 500;
+      font-style: italic;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .form-panel {
+      padding: 2rem 1.8rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 235, 0.86)),
+        radial-gradient(circle at top right, rgba(245, 176, 0, 0.14), transparent 40%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 18px 36px rgba(82, 56, 14, 0.1);
+      clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .form-field label {
+      padding-left: 0.35rem;
+      color: var(--ink);
+      font-family: var(--font-sport);
+      font-size: 1.1rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid rgba(120, 84, 21, 0.14);
+      border-radius: 0;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      font-family: var(--font-text);
+      font-size: 1rem;
+      font-weight: 500;
+      font-style: italic;
+      padding: 0.9rem 1rem;
+      outline: none;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .form-field textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: rgba(245, 176, 0, 0.85);
+      background: #fff;
+      box-shadow:
+        inset 0 0 0 1px rgba(245, 176, 0, 0.28),
+        0 0 0 3px rgba(245, 176, 0, 0.12);
+    }
+
+    .form-submit {
+      justify-self: start;
+      min-height: 48px;
+      border: 0;
+      padding: 0.82rem 1.45rem;
+      background: #080808;
+      color: #fff;
+      cursor: pointer;
+      font-family: var(--font-sport);
+      font-size: 1.08rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transform: skewX(-8deg);
+      clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
+      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .form-submit:hover,
+    .form-submit:focus-visible {
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 0 12px 24px rgba(245, 176, 0, 0.24);
+    }
+
+    .form-submit:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero,
+      .form-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .contact-page h1,
+      .contact-kicker,
+      .form-copy h2,
+      .form-copy p {
+        transform-origin: center;
+      }
+
+      .contact-lead {
+        margin: 0 auto;
+        transform-origin: center;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card-heading {
+        justify-content: center;
+        transform-origin: center;
+      }
+
+      .contact-links {
+        justify-items: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .subpage-main {
+        padding: 3.2rem 0 3rem;
+      }
+
+      .contact-page {
+        padding: 0 1rem;
+      }
+
+      .contact-hero {
+        gap: 1.7rem;
+        margin-bottom: 2.8rem;
+      }
+
+      .contact-page h1 {
+        font-size: clamp(2.7rem, 15vw, 4.45rem);
+        line-height: 1.04;
+      }
+
+      .contact-lead,
+      .form-copy p {
+        font-size: 0.98rem;
+        line-height: 1.82;
+      }
+
+      .contact-visual {
+        width: min(100%, 310px);
+        padding: 1.8rem 1.5rem;
+      }
+
+      .contact-card,
+      .form-panel {
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .form-panel {
+        padding: 1.7rem 1.3rem;
+      }
+
+      .form-panel h2 {
+        text-align: center;
+        transform-origin: center;
+      }
+
+      .form-submit {
+        justify-self: center;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <a href="index.html" class="logo" aria-label="Zdelovská lávka - hlavní stránka">
+          <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+        </a>
 
-<header>
-  <div class="nav-centered">
-    <div class="logo">Zdelovská lávka</div>
-    <nav aria-label="Hlavní navigace">
-      <ul class="nav-menu">
-    <li><a href="index.html" >Novinky</a></li>
-        <li><a href="o-akci.html">O akci</a></li>
-        <li><a href="program.html">Program</a></li>
-        <li><a href="informace.html">Informace</a></li>
-        <li><a href="fotky.html">Fotky</a></li>
-        <li><a href="kontakt.html"class="active">Kontakt</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+        <a href="program.html" class="event-date" aria-label="Přejít na program akce">
+          <img src="fotky/png text banner.png" alt="Datum akce 25/7/2026" />
+        </a>
+      </div>
 
-<main>
-  <section>
-    <h1>Kontakt</h1>
-    <p>
-      Máš dotaz k programu, chceš se zapojit jako dobrovolník nebo partner akce? Napiš nám.
-    </p>
-    <p>
-      E-mail: <a href="gabca.kostelec123@gmail.com">gabca.kostelec123@gmail.com</a><br>
-      Telefon: +420 732 578 823
-    </p>
-    <p>
-      E-mail: <a href="petr.nedvidek123@gmail.com">petr.nedvidek123@gmail.com</a><br>
-      Telefon: +420 733 217 056
-    </p>
-    
+      <nav aria-label="Hlavní navigace">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-mobile-brand">
+            <a href="index.html" aria-label="Zdelovská lávka - hlavní stránka">
+              <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+            </a>
+          </li>
 
-    <div class="card">
-      <h2>Nezávazná zpráva</h2>
-      <form>
-        <div>
-          <label for="jmeno">Jméno</label>
-          <input type="text" id="jmeno" name="jmeno" placeholder="Vaše jméno">
-        </div>
-        <div>
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="vas@email.cz">
-        </div>
-        <div>
-          <label for="zprava">Zpráva</label>
-          <textarea id="zprava" name="zprava" placeholder="Sem napište svůj dotaz…"></textarea>
-        </div>
-        <button type="button" class="btn-primary">
-          Odeslat (ukázkově)
-        </button>
-        
-      </form>
+          <li><a href="index.html">Novinky</a></li>
+          <li><a href="o-akci.html">O akci</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="informace.html">Informace</a></li>
+          <li><a href="fotky.html">Fotky</a></li>
+          <li><a href="kontakt.html" class="active" aria-current="page">Kontakt</a></li>
+
+          <li class="nav-mobile-socials" aria-label="Sociální sítě">
+            <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+              <img src="fotky/instagram.png" alt="Instagram" />
+            </a>
+
+            <span class="nav-social-handle">@Zdelovská lávka</span>
+
+            <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+              <img src="fotky/facebook.png" alt="Facebook" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="burger" id="burger" aria-label="Otevřít menu" aria-controls="navLinks" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
     </div>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+  </header>
+
+  <main class="subpage-main">
+    <div class="contact-page">
+      <section class="contact-hero" aria-labelledby="contact-heading">
+        <div>
+          <p class="contact-kicker">Napište nám</p>
+          <h1 id="contact-heading">Kontakt</h1>
+          <p class="contact-lead">
+            Máš dotaz k programu, chceš se zapojit jako dobrovolník nebo partner akce? Ozvi se nám e-mailem, telefonicky nebo přes formulář.
+          </p>
+        </div>
+
+        <aside class="contact-visual" aria-label="Zdelovská lávka">
+          <img src="fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
+          <p>Zdelovská lávka 2026</p>
+        </aside>
+      </section>
+
+      <section class="contact-grid" aria-label="Kontaktní osoby">
+        <article class="contact-card">
+          <div class="contact-card-heading">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 6h16v12H4z"></path>
+                <path d="M4 7l8 6 8-6"></path>
+              </svg>
+            </span>
+            <h2>Kontakt 1</h2>
+          </div>
+
+          <div class="contact-links">
+            <a href="mailto:gabca.kostelec123@gmail.com">gabca.kostelec123@gmail.com</a>
+            <a href="tel:+420732578823">+420 732 578 823</a>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <div class="contact-card-heading">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.45 2.1L8 9.7a16 16 0 0 0 6.3 6.3l1.3-1.25a2 2 0 0 1 2.1-.45c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"></path>
+              </svg>
+            </span>
+            <h2>Kontakt 2</h2>
+          </div>
+
+          <div class="contact-links">
+            <a href="mailto:petr.nedvidek123@gmail.com">petr.nedvidek123@gmail.com</a>
+            <a href="tel:+420733217056">+420 733 217 056</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="form-section" aria-labelledby="form-heading">
+        <div class="form-copy">
+          <h2>Nezávazná zpráva</h2>
+          <p>
+            Formulář otevře e-mailovou aplikaci a připraví zprávu pro pořadatele. Pro rychlejší domluvu můžeš využít i přímý e-mail nebo telefon výše.
+          </p>
+        </div>
+
+        <div class="form-panel">
+          <h2 id="form-heading">Napiš dotaz</h2>
+
+          <form class="contact-form" action="mailto:gabca.kostelec123@gmail.com,petr.nedvidek123@gmail.com" method="post" enctype="text/plain">
+            <div class="form-field">
+              <label for="jmeno">Jméno</label>
+              <input type="text" id="jmeno" name="Jméno" placeholder="Vaše jméno" autocomplete="name" />
+            </div>
+
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="E-mail" placeholder="vas@email.cz" autocomplete="email" />
+            </div>
+
+            <div class="form-field">
+              <label for="zprava">Zpráva</label>
+              <textarea id="zprava" name="Zpráva" placeholder="Sem napište svůj dotaz..."></textarea>
+            </div>
+
+            <button type="submit" class="form-submit">Odeslat zprávu</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="section-divider" aria-label="Oddělovač obsahu a sponzorů">
+    <img src="fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
   </section>
-</main>
 
-<!-- 🔽 PATIČKA STRÁNKY -->
-<footer>
-  <div class="footer-inner">
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-socials" aria-label="Sociální sítě">
+        <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+          <img src="fotky/instagram.png" alt="Instagram" loading="lazy" />
+        </a>
 
-    <!-- Copyright text -->
-    <div class="footer-info">
-      © <span id="year"></span> Zdelovská lávka
-    </div>
+        <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+          <img src="fotky/facebook.png" alt="Facebook" loading="lazy" />
+        </a>
+      </div>
 
-    <!-- Sekce sponzorů -->
-    <div class="sponsors">
-      <h4>Naši sponzoři</h4>
+      <p>&copy; <span id="year"></span> Zdelovská lávka</p>
 
-      <!-- Obrázky/loga sponzorů -->
-      <div class="sponsor-logos">
-        <img src="sponsors/hptronic.jpg" alt="Sponzor 1" />
-        <img src="sponsors/skodaauto.jpg" alt="Sponzor 2" />
-        <img src="sponsors/slevomat.png" alt="Sponzor 3" />
-        <img src="sponsors/teliacom.png" alt="Sponzor 4" />
-        <img src="sponsors/telux_banner3.webp" alt="Sponzor 5" />
-        <!-- 🧩 můžeš přidat další loga podle potřeby -->
+      <div class="sponsors-section">
+        <h3>Partneři a sponzoři</h3>
+        <div class="sponsor-logos">
+          <img src="fotky/sponzori/osevaagri.png" alt="Oseva Agri" loading="lazy" />
+          <img src="fotky/sponzori/a-zchlazeni.png" alt="A-Z Chlazení" loading="lazy" />
+          <img src="fotky/sponzori/bencklenoty.png" alt="Benck Lenoty" loading="lazy" />
+          <img src="fotky/sponzori/blackdrops.png" alt="Black Drops" loading="lazy" />
+          <img src="fotky/sponzori/clock.png" alt="Clock" loading="lazy" />
+          <img src="fotky/sponzori/enzltransport.png" alt="Enzl Transport" loading="lazy" />
+          <img src="fotky/sponzori/mestoborohradek.png" alt="Město Borohrádek" loading="lazy" />
+          <img src="fotky/sponzori/obeczdelov.png" alt="Obec Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/realtrading.png" alt="Real Trading" loading="lazy" />
+          <img src="fotky/sponzori/slevomat.png" alt="Slevomat" loading="lazy" />
+          <img src="fotky/sponzori/teliacom.png" alt="TeliaCom" loading="lazy" />
+          <img src="fotky/sponzori/telux.png" alt="Telux" loading="lazy" />
+          <img src="fotky/sponzori/Farmatichy.png" alt="Farma Tichý" loading="lazy" />
+          <img src="fotky/sponzori/zdelovskahospoda.png" alt="Zdelovská hospoda" loading="lazy" />
+          <img src="fotky/sponzori/truhlarstvi.png" alt="Truhlářství Syrový" loading="lazy" />
+          <img src="fotky/sponzori/sdhzdelov.jpg" alt="SDH Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/zea.png" alt="ZEA" loading="lazy" />
+          <img src="fotky/sponzori/Strabag.png" alt="Strabag" loading="lazy" />
+          <img src="fotky/sponzori/Agroserviszamel.png" alt="Agroserviszamel" loading="lazy" />
+        </div>
       </div>
     </div>
+  </footer>
 
-  </div>
-</footer>
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      const navBackdrop = document.getElementById("navBackdrop");
+      const year = document.getElementById("year");
 
-  let lastScrollY = window.scrollY;
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (!header) return;
+      const closeMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Otevřít menu");
+        navLinks.classList.remove("show");
+        navBackdrop.hidden = true;
+        document.body.classList.remove("menu-open");
+      };
 
-    if (window.scrollY > lastScrollY) {
-      header.classList.add("hide");
-    } else {
-      header.classList.remove("hide");
-    }
-    lastScrollY = window.scrollY;
-  });
-</script>
+      const openMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Zavřít menu");
+        navLinks.classList.add("show");
+        navBackdrop.hidden = false;
+        document.body.classList.add("menu-open");
+      };
 
+      if (burger && navLinks && navBackdrop) {
+        burger.addEventListener("click", () => {
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+          if (isExpanded) closeMenu();
+          else openMenu();
+        });
+
+        navBackdrop.addEventListener("click", closeMenu);
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") closeMenu();
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
+
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+    });
+  </script>
 </body>
 </html>

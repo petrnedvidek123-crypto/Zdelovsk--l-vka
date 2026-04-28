@@ -1,119 +1,664 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <title>Informace pro návštěvníky – Zdelovská lávka</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Praktické informace pro návštěvníky akce Zdelovská lávka 2026." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Informace | Zdelovská lávka 2026</title>
 
-<header>
-  <div class="nav-centered">
-    <div class="logo">Zdelovská lávka</div>
-    <nav aria-label="Hlavní navigace">
-      <ul class="nav-menu">
- <li><a href="index.html" >Novinky</a></li>
-        <li><a href="o-akci.html">O akci</a></li>
-        <li><a href="program.html">Program</a></li>
-        <li><a href="informace.html"class="active">Informace</a></li>
-        <li><a href="fotky.html">Fotky</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  <link rel="preload" as="image" href="fotky/banner header.png" />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-SemiBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="fonts/Montserrat-Bold.woff2" crossorigin />
 
-<main>
-  <section>
-    <h1>Informace pro návštěvníky</h1>
-    <div class="info-grid">
-      <div class="info-item card">
-        <h3>Jak se k nám dostat</h3>
-        <p>
-          Zdelovská lávka se nachází v bývalém areálu koupaliště Zdelov.
-          Přijet lze pěšky, na kole nebo autem – parkovat lze hned vedle areálu.
-        </p>
-      </div>
-      <div class="info-item card">
-        <h3>Občerstvení</h3>
-        <p>
-          Občerstvení zajišťuje Zdelovská hospoda
-        </p>
-      </div>
-      <div class="info-item card">
-        <h3>Bezpečnost</h3>
-        <p>
-          Doporučujeme zvýšenou opatrnost u vody, zejména u dětí.
-          V případě špatného počasí se může program upravit nebo přesunout.
-        </p>
-      </div>
-    </div>
-    <div class="card">
-          <h3>Pro koho je akce?</h3>
-          <p>Pro rodiny s dětmi, partu kamarádů i jednotlivce. Stačí dobrá nálada.</p>
-        </div>
-        <div class="card">
-          <h3>Co si vzít s sebou?</h3>
-          <p>Pohodlné oblečení, něco k vodě, deku na sezení a případně hotovost na občerstvení.</p>
-        </div>
-  </section>
-   <section id="mapa">
-  <h2>Kde se akce koná</h2>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
 
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d685.5245656184597!2d16.136836200271155!3d50.10432585749632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2scz!4v1764849478488!5m2!1sen!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="fotky/favicon.png" />
 
-  <p>Interaktivní mapa s přesnou polohou Zdelovské lávky.</p>
-</section>
-
-</main>
-
-<!-- 🔽 PATIČKA STRÁNKY -->
-<footer>
-  <div class="footer-inner">
-
-    <!-- Copyright text -->
-    <div class="footer-info">
-      © <span id="year"></span> Zdelovská lávka
-    </div>
-
-    <!-- Sekce sponzorů -->
-    <div class="sponsors">
-      <h4>Naši sponzoři</h4>
-
-      <!-- Obrázky/loga sponzorů -->
-      <div class="sponsor-logos">
-        <img src="sponsors/hptronic.jpg" alt="Sponzor 1" />
-        <img src="sponsors/skodaauto.jpg" alt="Sponzor 2" />
-        <img src="sponsors/slevomat.png" alt="Sponzor 3" />
-        <img src="sponsors/teliacom.png" alt="Sponzor 4" />
-        <img src="sponsors/telux_banner3.webp" alt="Sponzor 5" />
-        <!-- 🧩 můžeš přidat další loga podle potřeby -->
-      </div>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-  let lastScrollY = window.scrollY;
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    if (!header) return;
-
-    if (window.scrollY > lastScrollY) {
-      header.classList.add("hide");
-    } else {
-      header.classList.remove("hide");
+  <style>
+    :root {
+      --font-text: "Inter", "Montserrat", Arial, sans-serif;
     }
-    lastScrollY = window.scrollY;
-  });
-</script>
 
+    .subpage-main {
+      background:
+        radial-gradient(circle at top left, rgba(255, 190, 92, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(88, 184, 255, 0.12), transparent 32%),
+        linear-gradient(180deg, #fffef8 0%, #fff8ec 52%, #fff3df 100%);
+      padding: 5rem 0 4rem;
+    }
+
+    .info-page {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .info-hero {
+      max-width: 860px;
+      margin-bottom: 4rem;
+    }
+
+    .info-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-sport);
+      font-size: 1rem;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a5a14;
+      transform: skewX(-7deg);
+    }
+
+    .info-kicker::before {
+      content: "";
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--yellow), #ffcf53);
+      box-shadow: 0 0 14px rgba(245, 176, 0, 0.28);
+    }
+
+    .info-page h1 {
+      max-width: 820px;
+      margin: 0 0 1.65rem;
+      font-family: var(--font-sport);
+      font-size: clamp(3rem, 7vw, 6.15rem);
+      line-height: 1.03;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.015em;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .info-lead {
+      max-width: 720px;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .info-card {
+      position: relative;
+      min-height: 190px;
+      padding: 1.35rem 1.2rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 235, 0.86));
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 14px 28px rgba(82, 56, 14, 0.09);
+      clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+      overflow: hidden;
+    }
+
+    .info-card-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.85rem;
+      padding-left: 0.95rem;
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .info-icon {
+      flex: 0 0 auto;
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(245, 176, 0, 0.95), rgba(255, 207, 83, 0.92));
+      clip-path: polygon(18% 0, 100% 0, 82% 100%, 0 100%);
+      box-shadow: 0 10px 20px rgba(245, 176, 0, 0.18);
+    }
+
+    .info-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--ink);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .info-card h2 {
+      margin: 0;
+      font-family: var(--font-sport);
+      font-size: 1.55rem;
+      line-height: 1.05;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .info-card p {
+      margin: 0;
+      padding-left: 1.3rem;
+      color: #3a2a16;
+      font-family: var(--font-text);
+      font-size: 0.95rem;
+      line-height: 1.72;
+      font-weight: 500;
+      font-style: italic;
+      letter-spacing: 0.005em;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .section-title {
+      margin: 0 0 1.5rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      line-height: 1.04;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .map-section {
+      margin-top: 1rem;
+    }
+
+    .map-card {
+      position: relative;
+      padding: 1rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 246, 226, 0.72)),
+        radial-gradient(circle at top right, rgba(245, 176, 0, 0.16), transparent 36%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 20px 42px rgba(82, 56, 14, 0.12);
+      border-radius: 8px;
+      overflow: visible;
+    }
+
+    .map-card-header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .map-open {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.8rem 1.35rem;
+      background: linear-gradient(135deg, var(--yellow), #ffcf53);
+      color: var(--ink);
+      text-decoration: none;
+      font-family: var(--font-sport);
+      font-size: 1.15rem;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transform: skewX(-8deg);
+      box-shadow: 0 12px 26px rgba(245, 176, 0, 0.2);
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    }
+
+    .map-open:hover,
+    .map-open:focus-visible {
+      background: #080808;
+      color: #fff;
+    }
+
+    .map-open:focus-visible {
+      outline: 2px solid var(--ink);
+      outline-offset: 4px;
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 390px;
+      aspect-ratio: 16 / 9;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #eee;
+      box-shadow: 0 14px 28px rgba(82, 56, 14, 0.1);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      filter: saturate(0.95) contrast(1.03) sepia(0.06);
+    }
+
+    .map-info-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .map-info-strip p {
+      position: relative;
+      margin: 0;
+      padding-left: 1.25rem;
+      color: #2d2112;
+      font-family: var(--font-text);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      font-weight: 500;
+      font-style: italic;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .map-info-strip p::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      width: 5px;
+      height: 25px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--yellow), #ffcf53);
+      transform: skewX(-10deg);
+      box-shadow: 0 0 12px rgba(245, 176, 0, 0.24);
+    }
+
+    @media (max-width: 900px) {
+      .info-grid,
+      .map-info-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .subpage-main {
+        padding: 3.2rem 0 3rem;
+      }
+
+      .info-page {
+        padding: 0 1rem;
+      }
+
+      .info-hero {
+        margin-bottom: 2.8rem;
+        text-align: center;
+      }
+
+      .info-page h1 {
+        font-size: clamp(2.7rem, 15vw, 4.45rem);
+        line-height: 1.04;
+        transform-origin: center;
+      }
+
+      .info-kicker {
+        transform-origin: center;
+      }
+
+      .info-lead {
+        margin: 0 auto;
+        font-size: 0.98rem;
+        line-height: 1.82;
+        transform-origin: center;
+      }
+
+      .info-card {
+        min-height: auto;
+        padding: 1.25rem 1.15rem;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .info-card-heading {
+        padding-left: 0.85rem;
+      }
+
+      .info-card p {
+        padding-left: 1rem;
+      }
+
+      .section-title {
+        text-align: center;
+        transform-origin: center;
+      }
+
+      .map-card {
+        padding: 0.85rem;
+      }
+
+      .map-card-header {
+        justify-content: center;
+      }
+
+      .map-frame {
+        aspect-ratio: 4 / 5;
+        min-height: 430px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <a href="index.html" class="logo" aria-label="Zdelovská lávka - hlavní stránka">
+          <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+        </a>
+
+        <a href="program.html" class="event-date" aria-label="Přejít na program akce">
+          <img src="fotky/png text banner.png" alt="Datum akce 25/7/2026" />
+        </a>
+      </div>
+
+      <nav aria-label="Hlavní navigace">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-mobile-brand">
+            <a href="index.html" aria-label="Zdelovská lávka - hlavní stránka">
+              <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+            </a>
+          </li>
+
+          <li><a href="index.html">Novinky</a></li>
+          <li><a href="o-akci.html">O akci</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="informace.html" class="active" aria-current="page">Informace</a></li>
+          <li><a href="fotky.html">Fotky</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+
+          <li class="nav-mobile-socials" aria-label="Sociální sítě">
+            <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+              <img src="fotky/instagram.png" alt="Instagram" />
+            </a>
+
+            <span class="nav-social-handle">@Zdelovská lávka</span>
+
+            <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+              <img src="fotky/facebook.png" alt="Facebook" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="burger" id="burger" aria-label="Otevřít menu" aria-controls="navLinks" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+  </header>
+
+  <main class="subpage-main">
+    <div class="info-page">
+      <section class="info-hero" aria-labelledby="info-heading">
+        <p class="info-kicker">Praktické informace</p>
+        <h1 id="info-heading">Informace pro návštěvníky</h1>
+        <p class="info-lead">
+          Všechno důležité před příjezdem na akci. Vstupné, soutěžení, pravidla areálu, zázemí i přesná poloha místa konání.
+        </p>
+      </section>
+
+      <section aria-label="Praktické informace">
+        <div class="info-grid">
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <line x1="12" y1="10" x2="12" y2="17"></line>
+                  <line x1="12" y1="7" x2="12.01" y2="7"></line>
+                </svg>
+              </span>
+              <h2>Vstupné a soutěž</h2>
+            </div>
+            <p>Kdo zaplatí vstupné, má nárok soutěžit. Vstupné je 150 Kč pro dospělé a 100 Kč pro děti.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11z"></path>
+                  <circle cx="12" cy="10" r="2.4"></circle>
+                </svg>
+              </span>
+              <h2>Jak se k nám dostat</h2>
+            </div>
+            <p>Do areálu lze dorazit pěšky nebo autem. Parkování je možné hned vedle areálu podle aktuálních pokynů pořadatelů.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 9h10v5a5 5 0 0 1-10 0V9z"></path>
+                  <path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"></path>
+                  <path d="M5 20h13"></path>
+                  <path d="M8 4v2"></path>
+                  <path d="M12 4v2"></path>
+                </svg>
+              </span>
+              <h2>Občerstvení</h2>
+            </div>
+            <p>Občerstvení zajišťuje Zdelovská hospoda. V areálu bude možné koupit jídlo i pití během celého programu.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 4l4 3 4-3 4 4-3 3v9H7v-9L4 8l4-4z"></path>
+                  <path d="M10 5.5c.5 1 1.2 1.5 2 1.5s1.5-.5 2-1.5"></path>
+                </svg>
+              </span>
+              <h2>Převlékárny</h2>
+            </div>
+            <p>Na místě jsou k dispozici převlékárny, takže se soutěžící mohou před i po disciplínách pohodlně převléknout.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <circle cx="9" cy="23" r="4.2"></circle>
+                  <circle cx="24" cy="23" r="4.2"></circle>
+                  <path d="M9 23l5-10h5l5 10"></path>
+                  <path d="M14 13l5 10"></path>
+                  <path d="M14 13h-3"></path>
+                  <path d="M19 13l3-4"></path>
+                  <path d="M22 9h4"></path>
+                  <path d="M26 9l2 2"></path>
+                  <path d="M6 6l20 20"></path>
+                </svg>
+              </span>
+              <h2>Zákaz kol v areálu</h2>
+            </div>
+            <p>Do areálu nesmí kola. Prosíme návštěvníky, aby kola nechali mimo prostor akce.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3l7 3v5c0 4.5-2.8 8.2-7 10-4.2-1.8-7-5.5-7-10V6l7-3z"></path>
+                  <path d="M9 12l2 2 4-5"></path>
+                </svg>
+              </span>
+              <h2>Bezpečnost</h2>
+            </div>
+            <p>Doporučujeme zvýšenou opatrnost u vody, zejména u dětí. V případě špatného počasí se může program upravit.</p>
+          </article>
+
+          <article class="info-card">
+            <div class="info-card-heading">
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 8h12l1 12H5L6 8z"></path>
+                  <path d="M9 8a3 3 0 0 1 6 0"></path>
+                  <path d="M9 13h.01"></path>
+                  <path d="M15 13h.01"></path>
+                </svg>
+              </span>
+              <h2>Co si vzít s sebou</h2>
+            </div>
+            <p>Pohodlné oblečení, něco k vodě, deku na sezení a případně hotovost na občerstvení.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="map-section" id="mapa" aria-labelledby="map-heading">
+        <h2 id="map-heading" class="section-title">Kde se akce koná</h2>
+
+        <div class="map-card">
+          <div class="map-card-header">
+            <a class="map-open" href="https://www.google.com/maps/dir/?api=1&destination=50.10432585749632,16.136836200271155" target="_blank" rel="noopener noreferrer">
+              Navigovat
+            </a>
+          </div>
+
+          <div class="map-frame">
+            <iframe
+              src="https://maps.google.com/maps?q=50.10432585749632,16.136836200271155&amp;t=p&amp;z=17&amp;output=embed"
+              title="Terénová mapa místa konání Zdelovské lávky"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="map-info-strip">
+            <p>Mapa je nastavená na terénové zobrazení a ukazuje přesnou polohu areálu akce.</p>
+            <p>Parkování je možné hned vedle areálu podle aktuálních pokynů pořadatelů.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="section-divider" aria-label="Oddělovač obsahu a sponzorů">
+    <img src="fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-socials" aria-label="Sociální sítě">
+        <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+          <img src="fotky/instagram.png" alt="Instagram" loading="lazy" />
+        </a>
+
+        <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+          <img src="fotky/facebook.png" alt="Facebook" loading="lazy" />
+        </a>
+      </div>
+
+      <p>&copy; <span id="year"></span> Zdelovská lávka</p>
+
+      <div class="sponsors-section">
+        <h3>Partneři a sponzoři</h3>
+        <div class="sponsor-logos">
+          <img src="fotky/sponzori/osevaagri.png" alt="Oseva Agri" loading="lazy" />
+          <img src="fotky/sponzori/a-zchlazeni.png" alt="A-Z Chlazení" loading="lazy" />
+          <img src="fotky/sponzori/bencklenoty.png" alt="Benck Lenoty" loading="lazy" />
+          <img src="fotky/sponzori/blackdrops.png" alt="Black Drops" loading="lazy" />
+          <img src="fotky/sponzori/clock.png" alt="Clock" loading="lazy" />
+          <img src="fotky/sponzori/enzltransport.png" alt="Enzl Transport" loading="lazy" />
+          <img src="fotky/sponzori/mestoborohradek.png" alt="Město Borohrádek" loading="lazy" />
+          <img src="fotky/sponzori/obeczdelov.png" alt="Obec Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/realtrading.png" alt="Real Trading" loading="lazy" />
+          <img src="fotky/sponzori/slevomat.png" alt="Slevomat" loading="lazy" />
+          <img src="fotky/sponzori/teliacom.png" alt="TeliaCom" loading="lazy" />
+          <img src="fotky/sponzori/telux.png" alt="Telux" loading="lazy" />
+          <img src="fotky/sponzori/Farmatichy.png" alt="Farma Tichý" loading="lazy" />
+          <img src="fotky/sponzori/zdelovskahospoda.png" alt="Zdelovská hospoda" loading="lazy" />
+          <img src="fotky/sponzori/truhlarstvi.png" alt="Truhlářství Syrový" loading="lazy" />
+          <img src="fotky/sponzori/sdhzdelov.jpg" alt="SDH Zdelov" loading="lazy" />
+          <img src="fotky/sponzori/zea.png" alt="ZEA" loading="lazy" />
+          <img src="fotky/sponzori/Strabag.png" alt="Strabag" loading="lazy" />
+          <img src="fotky/sponzori/Agroserviszamel.png" alt="Agroserviszamel" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      const navBackdrop = document.getElementById("navBackdrop");
+      const year = document.getElementById("year");
+
+      const closeMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Otevřít menu");
+        navLinks.classList.remove("show");
+        navBackdrop.hidden = true;
+        document.body.classList.remove("menu-open");
+      };
+
+      const openMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Zavřít menu");
+        navLinks.classList.add("show");
+        navBackdrop.hidden = false;
+        document.body.classList.add("menu-open");
+      };
+
+      if (burger && navLinks && navBackdrop) {
+        burger.addEventListener("click", () => {
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+          if (isExpanded) closeMenu();
+          else openMenu();
+        });
+
+        navBackdrop.addEventListener("click", closeMenu);
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") closeMenu();
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
+
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+    });
+  </script>
 </body>
 </html>

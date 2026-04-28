@@ -53,6 +53,12 @@
 
       <nav aria-label="Hlavní navigace">
         <ul class="nav-links" id="navLinks">
+          <li class="nav-mobile-brand">
+            <a href="index.html" aria-label="Zdelovská lávka - hlavní stránka">
+              <img src="fotky/banner header.png" alt="Zdelovská lávka logo" />
+            </a>
+          </li>
+
           <li><a href="index.html" class="active" aria-current="page">Novinky</a></li>
           <li><a href="o-akci.html">O akci</a></li>
           <li><a href="program.html">Program</a></li>
@@ -60,32 +66,21 @@
           <li><a href="fotky.html">Fotky</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
 
-          <li class="nav-socials" aria-label="Sociální sítě">
-            <a href="https://www.instagram.com/" class="social-link instagram-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M7.8 2h8.4A5.81 5.81 0 0 1 22 7.8v8.4a5.81 5.81 0 0 1-5.8 5.8H7.8A5.81 5.81 0 0 1 2 16.2V7.8A5.81 5.81 0 0 1 7.8 2Zm-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6Zm9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7.2a4.8 4.8 0 1 1 0 9.6 4.8 4.8 0 0 1 0-9.6Zm0 2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Z" />
-              </svg>
-              <span>Instagram</span>
+          <li class="nav-mobile-socials" aria-label="Sociální sítě">
+            <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+              <img src="fotky/instagram.png" alt="Instagram" />
             </a>
 
-            <a href="https://www.facebook.com/" class="social-link facebook-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M14.1 8.35V6.7c0-.8.55-.98.94-.98h2.4V2.06L14.13 2C10.46 2 9.62 4.75 9.62 6.5v1.85H7v3.95h2.62V22h4.1v-9.7h3.22l.52-3.95H13.7Z" />
-              </svg>
-              <span>Facebook</span>
+            <span class="nav-social-handle">@Zdelovská lávka</span>
+
+            <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+              <img src="fotky/facebook.png" alt="Facebook" />
             </a>
           </li>
         </ul>
       </nav>
 
-      <button
-        type="button"
-        class="burger"
-        id="burger"
-        aria-label="Otevřít menu"
-        aria-controls="navLinks"
-        aria-expanded="false"
-      >
+      <button type="button" class="burger" id="burger" aria-label="Otevřít menu" aria-controls="navLinks" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -100,37 +95,17 @@
       <img src="fotky/zdelovskalavka.png" alt="Zdelovská lávka 2026" class="overlay-img" fetchpriority="high" />
     </div>
 
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      class="background-video"
-      poster="fotky/zdelovskalavka.png"
-      aria-hidden="true"
-    >
+    <video autoplay muted loop playsinline class="background-video" poster="fotky/zdelovskalavka.png" aria-hidden="true">
       <source src="videa/video lavka2.mp4" type="video/mp4" />
       Tvůj prohlížeč nepodporuje video tag.
     </video>
 
     <div class="countdown-container">
       <div id="countdown" aria-label="Odpočet do akce">
-        <span>
-          <span class="count-value" id="days">00</span>
-          <span class="count-label">DNY</span>
-        </span>
-        <span>
-          <span class="count-value" id="hours">00</span>
-          <span class="count-label">HOD</span>
-        </span>
-        <span>
-          <span class="count-value" id="minutes">00</span>
-          <span class="count-label">MIN</span>
-        </span>
-        <span>
-          <span class="count-value" id="seconds">00</span>
-          <span class="count-label">SEK</span>
-        </span>
+        <span><span class="count-value" id="days">00</span><span class="count-label">DNY</span></span>
+        <span><span class="count-value" id="hours">00</span><span class="count-label">HOD</span></span>
+        <span><span class="count-value" id="minutes">00</span><span class="count-label">MIN</span></span>
+        <span><span class="count-value" id="seconds">00</span><span class="count-label">SEK</span></span>
       </div>
       <p id="countdownStatus" class="sr-only" aria-live="polite"></p>
     </div>
@@ -142,12 +117,8 @@
         <h2 id="novinky-heading" class="sr-only">Novinky Zdelovská lávka 2026</h2>
 
         <div class="news-controls" aria-label="Ovládání novinek">
-          <button type="button" class="news-arrow" id="newsPrev" aria-label="Předchozí novinka">
-            &#8592;
-          </button>
-          <button type="button" class="news-arrow" id="newsNext" aria-label="Další novinka">
-            &#8594;
-          </button>
+          <button type="button" class="news-arrow" id="newsPrev" aria-label="Předchozí novinka">&#8592;</button>
+          <button type="button" class="news-arrow" id="newsNext" aria-label="Další novinka">&#8594;</button>
         </div>
       </div>
 
@@ -159,10 +130,7 @@
               <div class="news-card-content">
                 <p class="news-meta">Aktualizováno 22. 4. 2026</p>
                 <h3>Přípravy na další ročník</h3>
-                <p>
-                  Sledujte první informace k letošnímu ročníku, postupně doplňovaný program a
-                  vše důležité, co se kolem akce právě chystá.
-                </p>
+                <p>Sledujte první informace k letošnímu ročníku, postupně doplňovaný program a vše důležité, co se kolem akce právě chystá.</p>
                 <span class="news-readmore">Číst více</span>
               </div>
             </a>
@@ -170,21 +138,11 @@
 
           <article class="news-card">
             <a href="indexnovinky/shrnutí zdelovské lávky.html" class="news-card-link">
-              <img
-                src="fotky/DSC_6957.png"
-                alt="Nejlepší momenty z loňska"
-                class="news-thumb"
-                loading="lazy"
-                width="1280"
-                height="720"
-              />
+              <img src="fotky/DSC_6957.png" alt="Nejlepší momenty z loňska" class="news-thumb" loading="lazy" width="1280" height="720" />
               <div class="news-card-content">
                 <p class="news-meta">Shrnutí minulého ročníku</p>
                 <h3>Nejlepší momenty z loňska</h3>
-                <p>
-                  Připomeňte si atmosféru minulého ročníku, nejhezčí momenty celé akce a to, co
-                  zůstalo návštěvníkům nejvíc v paměti.
-                </p>
+                <p>Připomeňte si atmosféru minulého ročníku, nejhezčí momenty celé akce a to, co zůstalo návštěvníkům nejvíc v paměti.</p>
                 <span class="news-readmore">Číst více</span>
               </div>
             </a>
@@ -192,19 +150,11 @@
 
           <article class="news-card">
             <a href="indexnovinky/pozarkoupaliste.html" class="news-card-link">
-              <img
-                src="fotky/pozarkoupaliste.png"
-                alt="Požár areálu koupaliště Zdelov"
-                class="news-thumb"
-                loading="lazy"
-              />
+              <img src="fotky/pozarkoupaliste.png" alt="Požár areálu koupaliště Zdelov" class="news-thumb" loading="lazy" />
               <div class="news-card-content">
                 <p class="news-meta">Mimořádná událost</p>
                 <h3>Požár areálu koupaliště Zdelov</h3>
-                <p>
-                  Aktuální informace k mimořádné události, jejím dopadům a dalším krokům, které se
-                  týkají areálu i plánování celé akce.
-                </p>
+                <p>Aktuální informace k mimořádné události, jejím dopadům a dalším krokům, které se týkají areálu i plánování celé akce.</p>
                 <span class="news-readmore">Číst více</span>
               </div>
             </a>
@@ -218,8 +168,22 @@
     </section>
   </main>
 
+  <section class="section-divider" aria-label="Oddělovač novinek a sponzorů">
+    <img src="fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
+  </section>
+
   <footer>
     <div class="footer-inner">
+      <div class="footer-socials" aria-label="Sociální sítě">
+        <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+          <img src="fotky/instagram.png" alt="Instagram" loading="lazy" />
+        </a>
+
+        <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+          <img src="fotky/facebook.png" alt="Facebook" loading="lazy" />
+        </a>
+      </div>
+
       <p>&copy; <span id="year"></span> Zdelovská lávka</p>
 
       <div class="sponsors-section">
@@ -286,11 +250,8 @@
       if (burger && navLinks && navBackdrop) {
         burger.addEventListener("click", () => {
           const isExpanded = burger.getAttribute("aria-expanded") === "true";
-          if (isExpanded) {
-            closeMenu();
-            return;
-          }
-          openMenu();
+          if (isExpanded) closeMenu();
+          else openMenu();
         });
 
         navBackdrop.addEventListener("click", closeMenu);
@@ -300,15 +261,11 @@
         });
 
         document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
-            closeMenu();
-          }
+          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") closeMenu();
         });
 
         window.addEventListener("resize", () => {
-          if (window.innerWidth > 768) {
-            closeMenu();
-          }
+          if (window.innerWidth > 768) closeMenu();
         });
       }
 
@@ -385,10 +342,7 @@
             const isActive = index === currentIndex;
             dot.classList.toggle("active", isActive);
             dot.setAttribute("aria-current", isActive ? "true" : "false");
-            dot.setAttribute(
-              "aria-label",
-              isActive ? `Aktivní novinka ${index + 1}` : `Přejít na novinku ${index + 1}`
-            );
+            dot.setAttribute("aria-label", isActive ? `Aktivní novinka ${index + 1}` : `Přejít na novinku ${index + 1}`);
           });
 
           updateArrows();
@@ -406,9 +360,7 @@
         const startAutoSlide = () => {
           stopAutoSlide();
 
-          if (reduceMotion || slides.length < 2 || window.innerWidth <= 768) {
-            return;
-          }
+          if (reduceMotion || slides.length < 2 || window.innerWidth <= 768) return;
 
           autoSlide = window.setInterval(() => {
             if (currentIndex >= slides.length - 1) {
@@ -447,39 +399,26 @@
         newsSlider.addEventListener("mouseleave", startAutoSlide);
         newsSlider.addEventListener("focusin", stopAutoSlide);
         newsSlider.addEventListener("focusout", (event) => {
-          if (event.relatedTarget && newsSlider.contains(event.relatedTarget)) {
-            return;
-          }
+          if (event.relatedTarget && newsSlider.contains(event.relatedTarget)) return;
           startAutoSlide();
         });
 
-        newsSlider.addEventListener(
-          "touchstart",
-          (event) => {
-            stopAutoSlide();
-            touchStartX = event.changedTouches[0].clientX;
-          },
-          { passive: true }
-        );
+        newsSlider.addEventListener("touchstart", (event) => {
+          stopAutoSlide();
+          touchStartX = event.changedTouches[0].clientX;
+        }, { passive: true });
 
-        newsSlider.addEventListener(
-          "touchend",
-          (event) => {
-            const touchEndX = event.changedTouches[0].clientX;
-            const swipeDistance = touchEndX - touchStartX;
+        newsSlider.addEventListener("touchend", (event) => {
+          const touchEndX = event.changedTouches[0].clientX;
+          const swipeDistance = touchEndX - touchStartX;
 
-            if (Math.abs(swipeDistance) >= 40) {
-              if (swipeDistance < 0) {
-                goToSlide(currentIndex + 1);
-              } else {
-                goToSlide(currentIndex - 1);
-              }
-            }
+          if (Math.abs(swipeDistance) >= 40) {
+            if (swipeDistance < 0) goToSlide(currentIndex + 1);
+            else goToSlide(currentIndex - 1);
+          }
 
-            startAutoSlide();
-          },
-          { passive: true }
-        );
+          startAutoSlide();
+        }, { passive: true });
 
         document.addEventListener("visibilitychange", () => {
           if (document.hidden) {
@@ -511,9 +450,7 @@
 
           if (distance <= 0) {
             countdownElement.innerHTML = "<span class=\"count-value\">AKCE ZAČALA!</span>";
-            if (countdownStatus) {
-              countdownStatus.textContent = "Akce začala.";
-            }
+            if (countdownStatus) countdownStatus.textContent = "Akce začala.";
             return true;
           }
 
@@ -535,9 +472,7 @@
         if (!countdownFinished) {
           const countdown = window.setInterval(() => {
             const finished = updateCountdown();
-            if (finished) {
-              window.clearInterval(countdown);
-            }
+            if (finished) window.clearInterval(countdown);
           }, 1000);
         }
       }
