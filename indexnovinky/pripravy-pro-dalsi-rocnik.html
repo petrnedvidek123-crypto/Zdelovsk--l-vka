@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="První informace k přípravám dalšího ročníku akce Zdelovská lávka 2026." />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>Přípravy na další ročník | Zdelovská lávka 2026</title>
+
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/Montserrat-Regular.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/Montserrat-SemiBold.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="../fonts/Montserrat-Bold.woff2" crossorigin />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" type="image/png" href="../fotky/favicon.png" />
+
+  <style>
+    .article-page .nav-bar {
+      justify-content: space-between;
+    }
+
+    .article-page .nav-left {
+      display: flex;
+    }
+
+    .article-page .logo img {
+      height: 9.5rem;
+      width: auto;
+      max-width: 545px;
+      object-fit: contain;
+    }
+
+    .article-top-actions {
+      width: min(100%, 980px);
+      margin: 0 auto 1rem;
+      padding: 0 0.25rem;
+    }
+
+    .article-back-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.62rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: var(--font-sport);
+      font-size: 1.04rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.22s ease, transform 0.22s ease;
+    }
+
+    .article-back-arrow span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #080808;
+      color: #fff;
+      font-family: var(--font-main);
+      font-size: 1.18rem;
+      font-style: normal;
+      line-height: 1;
+      transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+    }
+
+    .article-back-arrow:hover,
+    .article-back-arrow:focus-visible {
+      color: #000;
+      transform: translateX(-3px);
+    }
+
+    .article-back-arrow:hover span,
+    .article-back-arrow:focus-visible span {
+      background: var(--yellow);
+      color: #111;
+    }
+
+    .article-back-arrow:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 5px;
+      border-radius: 999px;
+    }
+
+    .article-page .article-date {
+      display: block;
+      margin: 0 0 1.8rem clamp(1rem, 3vw, 1.65rem);
+      padding: 0;
+      background: transparent;
+      color: #6a5430;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.01em;
+      text-transform: none;
+      transform: none;
+      clip-path: none;
+    }
+
+    .article-page .photo-gallery-link a {
+      transform: skewX(-3deg);
+      clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
+    }
+
+    .article-page footer {
+      padding: 6.4rem 0 1.2rem;
+      background: #fff;
+    }
+
+    @media (max-width: 1024px) {
+      .article-page .logo img {
+        height: 8.8rem;
+        max-width: 468px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .article-page header {
+        height: 86px;
+        min-height: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      .article-page .nav-bar {
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+      }
+
+      .article-page .nav-left {
+        position: static;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        gap: 0;
+        margin-left: 0;
+        max-width: calc(100% - 58px);
+        height: 100%;
+      }
+
+      .article-page .logo {
+        display: inline-flex;
+        justify-content: flex-start;
+      }
+
+      .article-page .logo img {
+        height: 6rem;
+        max-width: 290px;
+      }
+
+      .article-page .event-date {
+        display: none;
+      }
+
+      .article-page .burger {
+        display: flex;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 40;
+      }
+
+      .article-page .burger[aria-expanded="true"] {
+        position: fixed;
+        top: 1.7rem;
+        right: calc(6vw + 1rem);
+      }
+
+      .article-page .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.42);
+        backdrop-filter: blur(4px);
+        z-index: 19;
+        opacity: 1;
+      }
+
+      .article-page .nav-backdrop[hidden] {
+        display: none;
+      }
+
+      .article-page .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(88vw, 360px);
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        padding: 4.35rem 1rem 1.35rem;
+        gap: 0.74rem;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 246, 0.98) 0%, rgba(251, 238, 209, 0.98) 58%, rgba(238, 207, 145, 0.98) 100%),
+          radial-gradient(circle at 80% 8%, rgba(245, 176, 0, 0.18), transparent 36%),
+          radial-gradient(circle at 8% 100%, rgba(255, 255, 255, 0.62), transparent 46%);
+        box-shadow:
+          -18px 0 42px rgba(0, 0, 0, 0.22),
+          inset 1px 0 0 rgba(255, 255, 255, 0.62);
+        z-index: 20;
+        overflow-y: auto;
+        border-left: 1px solid rgba(245, 176, 0, 0.18);
+        visibility: hidden;
+        opacity: 0;
+        transform: translateX(105%);
+        transition:
+          transform 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.22s ease,
+          visibility 0.22s ease;
+        will-change: transform;
+      }
+
+      .article-page .nav-links.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .article-page .nav-mobile-brand {
+        display: flex;
+      }
+
+      .article-page .nav-mobile-socials {
+        display: flex;
+      }
+
+      .article-page .nav-links li:not(.nav-mobile-brand):not(.nav-mobile-socials) {
+        width: 100%;
+      }
+
+      .article-page .nav-links li:not(.nav-mobile-brand):not(.nav-mobile-socials) > a {
+        min-height: 55px;
+        padding: 0.78rem 3.1rem;
+        font-size: 1rem;
+      }
+
+      .article-page main {
+        padding: 2rem 0.85rem 2.8rem;
+      }
+
+      .article-top-actions {
+        width: min(100%, 640px);
+        margin: 0 auto 0.8rem;
+        padding: 0;
+      }
+
+      .article-back-arrow {
+        gap: 0.52rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.03em;
+      }
+
+      .article-back-arrow span {
+        width: 32px;
+        height: 32px;
+        font-size: 1.05rem;
+      }
+
+      .article-page main > article.detail {
+        width: min(100%, 640px);
+        padding: 1.7rem 1rem 1.9rem;
+        clip-path: none;
+        border: 1px solid rgba(120, 84, 21, 0.08);
+      }
+
+      .article-page main > article.detail::before {
+        left: 0.9rem;
+        top: 1.45rem;
+        width: 5px;
+        height: 54px;
+      }
+
+      .article-page main > article.detail h1 {
+        max-width: 100%;
+        padding-left: 1rem;
+        font-size: clamp(2.15rem, 12vw, 3.05rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .article-page .article-date {
+        margin: 0 0 1.55rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .article-page main > article.detail p:not(.article-date):not(.photo-credit) {
+        font-size: 0.98rem;
+        line-height: 1.78;
+      }
+
+      .article-page .photo-gallery-link a {
+        width: 100%;
+        transform: none;
+        clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+      }
+
+      .article-page footer {
+        padding: 5rem 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .article-page main {
+        padding: 1.6rem 0.75rem 2.4rem;
+      }
+
+      .article-page main > article.detail {
+        padding: 1.55rem 0.9rem 1.75rem;
+      }
+
+      .article-page main > article.detail h1 {
+        font-size: clamp(2rem, 11.5vw, 2.75rem);
+      }
+
+      .article-page main > article.detail p:not(.article-date):not(.photo-credit) {
+        font-size: 0.96rem;
+        line-height: 1.72;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .article-page header {
+        height: 82px;
+      }
+
+      .article-page .logo img {
+        height: 5.4rem;
+        max-width: 255px;
+      }
+    }
+  </style>
+</head>
+
+<body class="article-page">
+  <header>
+    <div class="nav-bar">
+      <div class="nav-left">
+        <a href="../index.html" class="logo" aria-label="Zdelovská lávka - hlavní stránka">
+          <img src="../fotky/banner header.png" alt="Zdelovská lávka logo" />
+        </a>
+
+        <a href="../program.html" class="event-date" aria-label="Přejít na program akce">
+          <img src="../fotky/png text banner.png" alt="Datum akce 25/7/2026" />
+        </a>
+      </div>
+
+      <nav aria-label="Hlavní navigace">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-mobile-brand">
+            <a href="../index.html" aria-label="Zdelovská lávka - hlavní stránka">
+              <img src="../fotky/banner header.png" alt="Zdelovská lávka logo" />
+            </a>
+          </li>
+
+          <li><a href="../index.html" class="active" aria-current="page">Novinky</a></li>
+          <li><a href="../o-akci.html">O akci</a></li>
+          <li><a href="../program.html">Program</a></li>
+          <li><a href="../informace.html">Informace</a></li>
+          <li><a href="../fotky.html">Fotky</a></li>
+          <li><a href="../kontakt.html">Kontakt</a></li>
+
+          <li class="nav-mobile-socials" aria-label="Sociální sítě">
+            <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+              <img src="../fotky/Instagram.png" alt="Instagram" />
+            </a>
+
+            <span class="nav-social-handle">@Zdelovská lávka</span>
+
+            <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+              <img src="../fotky/Facebook.png" alt="Facebook" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="burger" id="burger" aria-label="Otevřít menu" aria-controls="navLinks" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
+  </header>
+
+  <main>
+    <div class="article-top-actions">
+      <a href="../index.html" class="article-back-arrow" aria-label="Vrátit se na hlavní stránku">
+        <span aria-hidden="true">←</span>
+        Zpět na hlavní stránku
+      </a>
+    </div>
+
+    <article class="detail">
+      <h1>Přípravy na další ročník</h1>
+      <p class="article-date">Poslední úprava příspěvku: 22. 4. 2026</p>
+
+      <p>
+        Přípravy na Zdelovskou lávku 2026 jsou v plném proudu. Postupně ladíme program, soutěžní disciplíny,
+        zázemí v areálu i večerní část akce, aby si sobotu 25. 7. 2026 užili soutěžící i návštěvníci.
+      </p>
+
+      <p>
+        V areálu nás čeká také několik důležitých prací. Bude se opravovat samotná lávka, připravovat nový
+        náběhový trojúhelník a zároveň se počítá s vyplachováním koupaliště, aby bylo zázemí na další ročník
+        co nejlépe připravené.
+      </p>
+
+      <p>
+        Vedle soutěžní části bude potřeba připravit také zázemí pro večerní program. Počítáme s přípravou
+        pódia pro kapelu, rozvržením prostoru pro návštěvníky a stavěním stanů, které pomohou vytvořit
+        pohodlné zázemí během celého dne.
+      </p>
+
+      <p>
+        Hlavní soutěž zůstává postavená na oblíbených disciplínách, které ke Zdelovské lávce patří:
+        pevná lávka, trakař a plovoucí lávka. Přesný průběh dne budeme ještě doplňovat podle aktuálních
+        organizačních možností, počasí a připravenosti areálu.
+      </p>
+
+      <p>
+        V průběhu příprav budeme na web postupně přidávat další informace. Sledujte proto novinky,
+        program a praktické informace pro návštěvníky.
+      </p>
+
+      <div class="photo-gallery-link">
+        <a href="../program.html">Zobrazit program akce</a>
+      </div>
+    </article>
+  </main>
+
+  <section class="section-divider" aria-label="Oddělovač článku a sponzorů">
+    <img src="../fotky/zdelovskalavkadole.png" alt="Zdelovská lávka" loading="lazy" />
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-socials" aria-label="Sociální sítě">
+        <a href="https://www.instagram.com/zdelovskalavka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Zdelovské lávky">
+          <img src="../fotky/Instagram.png" alt="Instagram" loading="lazy" />
+        </a>
+
+        <a href="https://www.facebook.com/events/1381706463970757" target="_blank" rel="noopener noreferrer" aria-label="Facebook Zdelovské lávky">
+          <img src="../fotky/Facebook.png" alt="Facebook" loading="lazy" />
+        </a>
+      </div>
+
+      <p>&copy; 2026 Zdelovská lávka</p>
+
+      <div class="sponsors-section">
+        <h3>Partneři a sponzoři</h3>
+
+        <div class="sponsor-logos">
+          <img src="../fotky/sponzori/osevaagri.png" alt="Oseva Agri" loading="lazy" />
+          <img src="../fotky/sponzori/a-zchlazeni.png" alt="A-Z Chlazení" loading="lazy" />
+          <img src="../fotky/sponzori/bencklenoty.png" alt="Benck Lenoty" loading="lazy" />
+          <img src="../fotky/sponzori/blackdrops.png" alt="Black Drops" loading="lazy" />
+          <img src="../fotky/sponzori/clock.png" alt="Clock" loading="lazy" />
+          <img src="../fotky/sponzori/enzltransport.png" alt="Enzl Transport" loading="lazy" />
+          <img src="../fotky/sponzori/mestoborohradek.png" alt="Město Borohrádek" loading="lazy" />
+          <img src="../fotky/sponzori/obeczdelov.png" alt="Obec Zdelov" loading="lazy" />
+          <img src="../fotky/sponzori/realtrading.png" alt="Real Trading" loading="lazy" />
+          <img src="../fotky/sponzori/slevomat.png" alt="Slevomat" loading="lazy" />
+          <img src="../fotky/sponzori/teliacom.png" alt="TeliaCom" loading="lazy" />
+          <img src="../fotky/sponzori/telux.png" alt="Telux" loading="lazy" />
+          <img src="../fotky/sponzori/Farmatichy.png" alt="Farma Tichý" loading="lazy" />
+          <img src="../fotky/sponzori/zdelovskahospoda.png" alt="Zdelovská hospoda" loading="lazy" />
+          <img src="../fotky/sponzori/truhlarstvi.png" alt="Truhlářství Syrový" loading="lazy" />
+          <img src="../fotky/sponzori/sdhzdelov.jpg" alt="SDH Zdelov" loading="lazy" />
+          <img src="../fotky/sponzori/zea.png" alt="ZEA" loading="lazy" />
+          <img src="../fotky/sponzori/Strabag.png" alt="Strabag" loading="lazy" />
+          <img src="../fotky/sponzori/Agroserviszamel.png" alt="Agroserviszamel" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.getElementById("burger");
+      const navLinks = document.getElementById("navLinks");
+      const navBackdrop = document.getElementById("navBackdrop");
+
+      const closeMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Otevřít menu");
+        navLinks.classList.remove("show");
+        navBackdrop.hidden = true;
+        document.body.classList.remove("menu-open");
+      };
+
+      const openMenu = () => {
+        if (!burger || !navLinks || !navBackdrop) return;
+        burger.setAttribute("aria-expanded", "true");
+        burger.setAttribute("aria-label", "Zavřít menu");
+        navLinks.classList.add("show");
+        navBackdrop.hidden = false;
+        document.body.classList.add("menu-open");
+      };
+
+      if (burger && navLinks && navBackdrop) {
+        burger.addEventListener("click", () => {
+          const isExpanded = burger.getAttribute("aria-expanded") === "true";
+          if (isExpanded) closeMenu();
+          else openMenu();
+        });
+
+        navBackdrop.addEventListener("click", closeMenu);
+
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && burger.getAttribute("aria-expanded") === "true") {
+            closeMenu();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
