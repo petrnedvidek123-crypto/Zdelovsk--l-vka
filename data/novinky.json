@@ -1,0 +1,53 @@
+[
+  {
+    "id": "prvni-novinka",
+    "zobrazit": true,
+    "datum": "Aktualizováno 13. 5. 2026",
+    "titulek": "Nová lávka",
+    "popis": "Průběh výroby nové pevné lávky.",
+    "obrazek": "fotky/novinky/prvnidenprivoz.jpg",
+    "obsah": [
+      "Dne 10. 5. 2026 byla za pomoci místních hasičů z garáže obecního úřadu vystěhována stará lávka a na koupaliště byl převezen trojúhelník s podstavci, aby bylo vše připraveno na následující den, kdy bude Truhlářství Syrový vyrábět novou lávku.",
+
+      
+
+      "krátké video z výroby od Truhlářství Syrový :",
+
+      {
+        "typ": "video",
+        "src": "fotky/novinky/stavbalavkysucho.mp4",
+        "poster": "fotky/novinky/stavbalavkysucho.mp4"
+      },
+
+      "Upozornění: po dobu, kdy je lávka rozestavěná a v koupališti není voda, platí zákaz vstupu do prostoru lávky. Prosíme, nevstupujte na lávku a dbejte na vlastní bezpečnost."
+      
+    ]
+  },
+  {
+    "id": "druha-novinka",
+    "zobrazit": false,
+    "datum": "Aktualizováno 13. 5. 2026",
+    "titulek": "Nová lávka",
+    "popis": "Průběh výroby nové pevné lávky.",
+    "obrazek": "fotky/novinky/prvnidenprivoz.jpg",
+    "obsah": [
+      "Dne 10. 5. 2026 byla za pomoci místních hasičů z garáže obecního úřadu vystěhována stará lávka a na koupaliště byl převezen trojúhelník s podstavci, aby bylo vše připraveno na následující den, kdy bude Truhlářství Syrový vyrábět novou lávku.",
+
+      {
+        "typ": "obrazek",
+        "src": "fotky/novinky/prvnidenprivoz.jpg",
+        "alt": "Přívoz materiálu na novou lávku"
+      },
+
+      "Postupně budeme doplňovat další fotky a informace z výroby.",
+
+      {
+        "typ": "video",
+        "src": "videa/video-lavka-3.mp4",
+        "poster": "fotky/zdelovskalavka.png"
+      }
+    ]
+  }
+
+  
+]
