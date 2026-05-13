@@ -33,9 +33,12 @@
       width: min(100%, 1120px);
       margin: 0 auto;
       padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
     }
 
     .photos-hero {
+      order: 1;
       display: grid;
       grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.65fr);
       gap: 2.5rem;
@@ -119,11 +122,23 @@
       filter: saturate(1.04) contrast(1.03);
     }
 
+    .photo-stack-icon {
+      background: transparent;
+      box-shadow: none;
+      clip-path: none;
+      overflow: visible;
+    }
+
+    .photo-stack-icon img {
+      object-fit: contain;
+      filter: drop-shadow(0 16px 22px rgba(82, 56, 14, 0.16));
+    }
+
     .photo-stack-main {
-      left: 2%;
-      top: 18%;
-      width: 74%;
-      height: 225px;
+      left: 10%;
+      top: 12%;
+      width: 76%;
+      height: 240px;
       z-index: 3;
     }
 
@@ -141,6 +156,191 @@
       inset: 0;
       background: linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.08));
       pointer-events: none;
+    }
+
+    .photo-stack-icon::after {
+      display: none;
+    }
+
+    .archive-years {
+      order: 4;
+      margin: 4rem 0 0;
+    }
+
+    .current-years {
+      order: 2;
+    }
+
+    .photo-credit-card {
+      order: 3;
+      margin: 3.4rem 0 0;
+      padding: 1.55rem 1.75rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 235, 0.82)),
+        radial-gradient(circle at top right, rgba(245, 176, 0, 0.14), transparent 38%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 14px 28px rgba(82, 56, 14, 0.08);
+      clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+    }
+
+    .photo-credit-card h2 {
+      margin: 0 0 0.75rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .photo-credit-card p {
+      margin: 0 0 1rem;
+      color: #3a2a16;
+      font-family: var(--font-text);
+      font-size: 1rem;
+      line-height: 1.72;
+      font-weight: 500;
+      font-style: italic;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
+    }
+
+    .photo-credit-card a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 42px;
+      padding: 0.7rem 1.1rem;
+      background: #080808;
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--font-sport);
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transform: skewX(-8deg);
+      clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .photo-credit-card a svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+
+    .photo-credit-card a:hover,
+    .photo-credit-card a:focus-visible {
+      background: var(--yellow);
+      color: var(--ink);
+      box-shadow: 0 12px 24px rgba(245, 176, 0, 0.24);
+    }
+
+    .archive-years-heading {
+      margin: 0 0 1.15rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2.1rem, 4.5vw, 3.8rem);
+      line-height: 1.04;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .archive-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin: 0 0 1.25rem;
+    }
+
+    .archive-tab {
+      min-width: 108px;
+      min-height: 56px;
+      border: 0;
+      padding: 0.86rem 1.28rem;
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--ink);
+      cursor: pointer;
+      font-family: var(--font-sport);
+      font-size: 1.25rem;
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 0.055em;
+      text-transform: uppercase;
+      transform: skewX(-3deg);
+      clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 10px 20px rgba(82, 56, 14, 0.07);
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .archive-tab:hover,
+    .archive-tab:focus-visible,
+    .archive-tab[aria-selected="true"] {
+      background: #080808;
+      color: #fff;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 14px 26px rgba(0, 0, 0, 0.16);
+    }
+
+    .archive-tab:focus-visible {
+      outline: 2px solid var(--yellow);
+      outline-offset: 4px;
+    }
+
+    .archive-panel {
+      padding: 2rem 2.2rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 235, 0.82)),
+        radial-gradient(circle at top right, rgba(245, 176, 0, 0.13), transparent 38%);
+      box-shadow:
+        inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+        0 14px 28px rgba(82, 56, 14, 0.08);
+      clip-path: polygon(1.5% 0, 100% 0, 98.5% 100%, 0 100%);
+    }
+
+    .archive-panel[hidden] {
+      display: none;
+    }
+
+    .archive-panel h3 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-sport);
+      font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+      color: var(--ink);
+      transform: skewX(-7deg);
+      transform-origin: left center;
+    }
+
+    .archive-panel p {
+      margin: 0;
+      color: #3a2a16;
+      font-family: var(--font-text);
+      font-size: 1.05rem;
+      line-height: 1.72;
+      font-weight: 500;
+      font-style: italic;
+      transform: skewX(-2.5deg);
+      transform-origin: left center;
     }
 
     .year-grid {
@@ -298,11 +498,16 @@
       }
 
       .photos-page h1,
-      .photos-kicker {
+      .photos-kicker,
+      .photo-credit-card h2,
+      .archive-years-heading,
+      .archive-panel h3 {
         transform-origin: center;
       }
 
-      .photos-lead {
+      .photos-lead,
+      .photo-credit-card p,
+      .archive-panel p {
         margin: 0 auto;
         transform-origin: center;
       }
@@ -326,6 +531,34 @@
         margin-bottom: 2.8rem;
       }
 
+      .archive-years {
+        margin: 2.8rem 0 0;
+        text-align: center;
+      }
+
+      .archive-tabs {
+        justify-content: center;
+      }
+
+      .archive-tab {
+        min-width: 84px;
+        min-height: 42px;
+        padding: 0.66rem 1rem;
+        font-size: 1rem;
+      }
+
+      .archive-panel {
+        padding: 1.35rem 1.45rem;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
+      .photo-credit-card {
+        margin: 2.6rem 0 0;
+        padding: 1.35rem 1.25rem;
+        text-align: center;
+        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+      }
+
       .photos-page h1 {
         font-size: clamp(2.7rem, 15vw, 4.45rem);
         line-height: 1.04;
@@ -339,6 +572,7 @@
       .photos-visual {
         width: min(100%, 330px);
         min-height: 230px;
+        contain: layout paint;
       }
 
       .photo-stack-main {
@@ -351,17 +585,32 @@
 
       .year-card {
         grid-template-columns: 1fr;
-        min-height: auto;
-        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+        row-gap: 0;
+        min-height: 520px;
+        background: transparent;
+        box-shadow: none;
+        clip-path: none;
+        overflow: visible;
+        contain: layout paint;
       }
 
       .year-photo {
-        min-height: 210px;
-        aspect-ratio: 16 / 9;
-        clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+        width: 100%;
+        min-height: 0;
+        height: 210px;
+        aspect-ratio: auto;
+        clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
       }
 
       .year-content {
+        width: 100%;
+        margin-top: -2.35rem;
+        min-height: 310px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 248, 235, 0.88));
+        box-shadow:
+          inset 0 0 0 1px rgba(120, 84, 21, 0.08),
+          0 14px 28px rgba(82, 56, 14, 0.08);
+        clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
         padding: 1.65rem 1.45rem 1.8rem;
         align-items: center;
         text-align: center;
@@ -384,10 +633,12 @@
       }
 
       .year-photo {
-        min-height: 185px;
+        height: 185px;
+        min-height: 0;
       }
 
       .year-content {
+        min-height: 300px;
         padding: 1.55rem 1.25rem 1.75rem;
       }
 
@@ -463,17 +714,92 @@
         </div>
 
         <div class="photos-visual" aria-hidden="true">
-          <div class="photo-stack photo-stack-main">
-            <img src="fotky/DSC_6867.jpg" alt="" loading="lazy" />
+          <div class="photo-stack photo-stack-main photo-stack-icon">
+            <img src="fotky/miniatury/fotakminiatura.png" alt="" loading="lazy" />
           </div>
 
-          <div class="photo-stack photo-stack-top">
-            <img src="fotky/DSC_6957.png" alt="" loading="lazy" />
-          </div>
         </div>
       </section>
 
-      <section aria-label="Galerie podle ročníků">
+      <section class="photo-credit-card" aria-labelledby="drone-heading">
+        <h2 id="drone-heading">Dronové záběry</h2>
+        <p>Michal Vágner zachycuje akci také z výšky pomocí dronu.</p>
+        <a href="https://www.youtube.com/@VagnerMich" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.6 4.6 12 4.6 12 4.6s-5.6 0-7.5.5a3 3 0 0 0-2.1 2.1A31.2 31.2 0 0 0 2 12a31.2 31.2 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5a3 3 0 0 0 2.1-2.1A31.2 31.2 0 0 0 22 12a31.2 31.2 0 0 0-.4-4.8zM10 15.4V8.6l5.8 3.4L10 15.4z"></path>
+          </svg>
+          YouTube Michal Vágner
+        </a>
+      </section>
+
+      <section class="archive-years" aria-labelledby="archive-years-heading">
+        <h2 id="archive-years-heading" class="archive-years-heading">Archiv starších ročníků</h2>
+
+        <div class="archive-tabs" role="tablist" aria-label="Starší ročníky">
+          <button type="button" class="archive-tab" role="tab" id="tab-2004" aria-controls="panel-2004" aria-selected="true">2004</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2007" aria-controls="panel-2007" aria-selected="false">2007</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2008" aria-controls="panel-2008" aria-selected="false">2008</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2009" aria-controls="panel-2009" aria-selected="false">2009</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2010" aria-controls="panel-2010" aria-selected="false">2010</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2011" aria-controls="panel-2011" aria-selected="false">2011</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2013" aria-controls="panel-2013" aria-selected="false">2013</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2014" aria-controls="panel-2014" aria-selected="false">2014</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2015" aria-controls="panel-2015" aria-selected="false">2015</button>
+          <button type="button" class="archive-tab" role="tab" id="tab-2017" aria-controls="panel-2017" aria-selected="false">2017</button>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2004" aria-labelledby="tab-2004">
+          <h3>Ročník 2004</h3>
+          <p>Záložka pro archivní fotky z ročníku 2004 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2007" aria-labelledby="tab-2007" hidden>
+          <h3>Ročník 2007</h3>
+          <p>Záložka pro archivní fotky z ročníku 2007 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2008" aria-labelledby="tab-2008" hidden>
+          <h3>Ročník 2008</h3>
+          <p>Záložka pro archivní fotky z ročníku 2008 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2009" aria-labelledby="tab-2009" hidden>
+          <h3>Ročník 2009</h3>
+          <p>Záložka pro archivní fotky z ročníku 2009 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2010" aria-labelledby="tab-2010" hidden>
+          <h3>Ročník 2010</h3>
+          <p>Záložka pro archivní fotky z ročníku 2010 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2011" aria-labelledby="tab-2011" hidden>
+          <h3>Ročník 2011</h3>
+          <p>Záložka pro archivní fotky z ročníku 2011 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2013" aria-labelledby="tab-2013" hidden>
+          <h3>Ročník 2013</h3>
+          <p>Záložka pro archivní fotky z ročníku 2013 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2014" aria-labelledby="tab-2014" hidden>
+          <h3>Ročník 2014</h3>
+          <p>Záložka pro archivní fotky z ročníku 2014 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2015" aria-labelledby="tab-2015" hidden>
+          <h3>Ročník 2015</h3>
+          <p>Záložka pro archivní fotky z ročníku 2015 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+
+        <div class="archive-panel" role="tabpanel" id="panel-2017" aria-labelledby="tab-2017" hidden>
+          <h3>Ročník 2017</h3>
+          <p>Záložka pro archivní fotky z ročníku 2017 je připravená. Fotky nebo odkaz na galerii sem doplníme, jakmile bude archiv uložený mimo GitHub.</p>
+        </div>
+      </section>
+
+      <section class="current-years" aria-label="Galerie podle ročníků">
         <div class="year-grid">
           <article class="year-card">
             <div class="year-photo">
@@ -590,6 +916,8 @@
       const navLinks = document.getElementById("navLinks");
       const navBackdrop = document.getElementById("navBackdrop");
       const year = document.getElementById("year");
+      const archiveTabs = Array.from(document.querySelectorAll(".archive-tab"));
+      const archivePanels = Array.from(document.querySelectorAll(".archive-panel"));
 
       const closeMenu = () => {
         if (!burger || !navLinks || !navBackdrop) return;
@@ -633,6 +961,22 @@
 
       if (year) {
         year.textContent = String(new Date().getFullYear());
+      }
+
+      if (archiveTabs.length && archivePanels.length) {
+        archiveTabs.forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const panelId = tab.getAttribute("aria-controls");
+
+            archiveTabs.forEach((item) => {
+              item.setAttribute("aria-selected", String(item === tab));
+            });
+
+            archivePanels.forEach((panel) => {
+              panel.hidden = panel.id !== panelId;
+            });
+          });
+        });
       }
     });
   </script>
